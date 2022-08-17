@@ -10,61 +10,53 @@ import SnapKit
 
 class LoginViewController: UIViewController {
     
+    //MARK: - Variables
+    
     let loginView = LoginView()
+    
     let signInView = SignInView()
     
-    private enum Constants {
-        static let segmentedControlHeight: CGFloat = 40
-        static let underlineViewColor: UIColor = .orange
-        static let underlineViewHeight: CGFloat = 2
-    }
-
     //MARK: - UIElements
     
     private lazy var containerView : UIView = {
-            let view = UIView()
-            view.backgroundColor = .white
-            return view
-        }()
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
     
     private lazy var segmentedControlContainerView: UIView = {
-            let containerView = UIView()
-            containerView.backgroundColor = .white
-            containerView.translatesAutoresizingMaskIntoConstraints = false
-            return containerView
-        }()
+        let containerView = UIView()
+        containerView.backgroundColor = .clear
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        return containerView
+    }()
     
     private lazy var segmentedControl: UISegmentedControl = {
-           let segmentedControl = UISegmentedControl()
-
-           // Remove background and divider colors
-           segmentedControl.backgroundColor = .white
-           segmentedControl.tintColor = .white
+        let segmentedControl = UISegmentedControl()
         
-           // Append segments
-           segmentedControl.insertSegment(withTitle: "Login", at: 0, animated: true)
-           segmentedControl.insertSegment(withTitle: "Sign up", at: 1, animated: true)
-
-           // Select first segment by default
-           segmentedControl.selectedSegmentIndex = 0
-
-           // Change text color and the font of the NOT selected (normal) segment
-           segmentedControl.setTitleTextAttributes([
+        segmentedControl.backgroundColor = .clear
+        segmentedControl.tintColor = .white
+        
+        segmentedControl.insertSegment(withTitle: "Login", at: 0, animated: true)
+        segmentedControl.insertSegment(withTitle: "Sign up", at: 1, animated: true)
+        
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.selectedSegmentTintColor = .white
+        
+        segmentedControl.setTitleTextAttributes([
             NSAttributedString.Key.foregroundColor: UIColor.black,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)], for: .normal)
-
-           // Change text color and the font of the selected segment
-           segmentedControl.setTitleTextAttributes([
+        
+        segmentedControl.setTitleTextAttributes([
             NSAttributedString.Key.foregroundColor: UIColor.orange,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)], for: .selected)
-
-           // Set up event handler to get notified when the selected segment changes
-           segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
-
-           // Return false because we will set the constraints with Auto Layout
-           segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-           return segmentedControl
-       }()
+        
+        segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
+        
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        return segmentedControl
+    }()
     
     private lazy var headerLabel: UILabel = {
         let label = UILabel()
@@ -86,15 +78,15 @@ class LoginViewController: UIViewController {
     }()
     
     private lazy var bottomUnderlineView: UIView = {
-           let underlineView = UIView()
-           underlineView.backgroundColor = Constants.underlineViewColor
-           underlineView.translatesAutoresizingMaskIntoConstraints = false
-           return underlineView
-       }()
+        let underlineView = UIView()
+        underlineView.backgroundColor = Constants.underlineViewColor
+        underlineView.translatesAutoresizingMaskIntoConstraints = false
+        return underlineView
+    }()
     
     private lazy var leadingDistanceConstraint: NSLayoutConstraint = {
-            return bottomUnderlineView.leftAnchor.constraint(equalTo: segmentedControl.leftAnchor)
-        }()
+        return bottomUnderlineView.leftAnchor.constraint(equalTo: segmentedControl.leftAnchor)
+    }()
     
     private lazy var headerLabelExpress: UILabel = {
         let label = UILabel()
@@ -117,13 +109,18 @@ class LoginViewController: UIViewController {
         
         return label
     }()
-
+    
     //MARK: - Parent Delegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        fillContainer(segmentView: loginView)
+        configureConstraints()
+    }
+    
+    private func configureConstraints() {
         view.addSubview(headerLabelExpress)
         view.addSubview(headerLabel)
         view.addSubview(loginLabel)
@@ -132,18 +129,14 @@ class LoginViewController: UIViewController {
         segmentedControlContainerView.addSubview(bottomUnderlineView)
         self.view.addSubview(self.containerView)
         
-        fillContainer(segmentView: loginView)
-        
         let safeLayoutGuide = self.view.safeAreaLayoutGuide
         
         segmentedControlContainerView.snp.makeConstraints { make in
             make.top.equalTo(loginLabel.snp.bottom).offset(32)
             make.left.equalTo(safeLayoutGuide.snp.left)
             make.right.equalTo(safeLayoutGuide.snp.right)
-//            make.height.equalTo(40)
         }
         
-        // Constrain the segmented control to the container view
         NSLayoutConstraint.activate([
             segmentedControl.topAnchor.constraint(equalTo: segmentedControlContainerView.topAnchor),
             segmentedControl.leadingAnchor.constraint(equalTo: segmentedControlContainerView.leadingAnchor),
@@ -151,7 +144,6 @@ class LoginViewController: UIViewController {
             segmentedControl.centerYAnchor.constraint(equalTo: segmentedControlContainerView.centerYAnchor)
         ])
         
-        // Constrain the underline view relative to the segmented control
         NSLayoutConstraint.activate([
             bottomUnderlineView.bottomAnchor.constraint(equalTo: segmentedControl.bottomAnchor),
             bottomUnderlineView.heightAnchor.constraint(equalToConstant: Constants.underlineViewHeight),
@@ -184,37 +176,36 @@ class LoginViewController: UIViewController {
     
     @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
-                case 0:
-                    self.fillContainer(segmentView: self.loginView)
-                    break
-                case 1:
-                    self.fillContainer(segmentView: self.signInView)
-                    break
-                default:
-                    break
-                }
-            changeSegmentedControlLinePosition()
+        case 0:
+            self.fillContainer(segmentView: self.loginView)
+            break
+        case 1:
+            self.fillContainer(segmentView: self.signInView)
+            break
+        default:
+            break
         }
+        changeSegmentedControlLinePosition()
+    }
     
     private func fillContainer ( segmentView: UIView) {
-            self.containerView.subviews.forEach { subview in
-                subview.removeFromSuperview()
-            }
-            
-            self.containerView.addSubview(segmentView)
-            
-            segmentView.snp.makeConstraints { make in
-                make.top.left.right.bottom.equalToSuperview()
-            }
+        self.containerView.subviews.forEach { subview in
+            subview.removeFromSuperview()
         }
+        
+        self.containerView.addSubview(segmentView)
+        
+        segmentView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalToSuperview()
+        }
+    }
     
     private func changeSegmentedControlLinePosition() {
-            let segmentIndex = CGFloat(segmentedControl.selectedSegmentIndex)
-            let segmentWidth = segmentedControl.frame.width / CGFloat(segmentedControl.numberOfSegments)
-            let leadingDistance = segmentWidth * segmentIndex
-            UIView.animate(withDuration: 0.3, animations: { [weak self] in
-                self?.leadingDistanceConstraint.constant = leadingDistance
-//                self?.layoutIfNeeded()
-            })
-        }
+        let segmentIndex = CGFloat(segmentedControl.selectedSegmentIndex)
+        let segmentWidth = segmentedControl.frame.width / CGFloat(segmentedControl.numberOfSegments)
+        let leadingDistance = segmentWidth * segmentIndex
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            self?.leadingDistanceConstraint.constant = leadingDistance
+        })
+    }
 }

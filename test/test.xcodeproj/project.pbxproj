@@ -14,9 +14,11 @@
 		49CB606128AB8F4900EA8303 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CB605F28AB8F4900EA8303 /* LaunchScreen.storyboard */; };
 		49CB609428AB954B00EA8303 /* ViewControllerEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB609328AB954B00EA8303 /* ViewControllerEXT.swift */; };
 		49CB609628AB95A100EA8303 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB609528AB95A100EA8303 /* LoginViewController.swift */; };
-		49CB609928AB998700EA8303 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 49CB609828AB998700EA8303 /* SnapKit */; };
 		49CB609C28ABA59300EA8303 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB609B28ABA59300EA8303 /* LoginView.swift */; };
 		49CB609E28ABA5B500EA8303 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB609D28ABA5B500EA8303 /* SignInView.swift */; };
+		4BE106A528AD712F00D28B1A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4BE106A428AD712F00D28B1A /* SnapKit */; };
+		4BE106AA28AD71E000D28B1A /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE106A928AD71E000D28B1A /* Enums.swift */; };
+		4BE106AC28AD72F300D28B1A /* TextFieldEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE106AB28AD72F300D28B1A /* TextFieldEXT.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		49CB609528AB95A100EA8303 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		49CB609B28ABA59300EA8303 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		49CB609D28ABA5B500EA8303 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		4BE106A928AD71E000D28B1A /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		4BE106AB28AD72F300D28B1A /* TextFieldEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldEXT.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49CB609928AB998700EA8303 /* SnapKit in Frameworks */,
+				4BE106A528AD712F00D28B1A /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,14 +68,11 @@
 		49CB605328AB8F4700EA8303 /* test */ = {
 			isa = PBXGroup;
 			children = (
+				4BE106A828AD71D200D28B1A /* Enums */,
 				49CB609A28ABA57800EA8303 /* Views */,
 				49CB609228AB953A00EA8303 /* Extensions */,
 				49CB609128AB947800EA8303 /* ViewControllers */,
-				49CB605428AB8F4700EA8303 /* AppDelegate.swift */,
-				49CB605628AB8F4700EA8303 /* SceneDelegate.swift */,
-				49CB605A28AB8F4700EA8303 /* Main.storyboard */,
-				49CB605D28AB8F4900EA8303 /* Assets.xcassets */,
-				49CB605F28AB8F4900EA8303 /* LaunchScreen.storyboard */,
+				4BE106A628AD717C00D28B1A /* Other */,
 				49CB606228AB8F4900EA8303 /* Info.plist */,
 			);
 			path = test;
@@ -80,7 +81,7 @@
 		49CB609128AB947800EA8303 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				49CB609528AB95A100EA8303 /* LoginViewController.swift */,
+				4BE106A728AD71A000D28B1A /* Login VC */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -89,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				49CB609328AB954B00EA8303 /* ViewControllerEXT.swift */,
+				4BE106AB28AD72F300D28B1A /* TextFieldEXT.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -96,10 +98,38 @@
 		49CB609A28ABA57800EA8303 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				49CB605A28AB8F4700EA8303 /* Main.storyboard */,
+				49CB605F28AB8F4900EA8303 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4BE106A628AD717C00D28B1A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				49CB605428AB8F4700EA8303 /* AppDelegate.swift */,
+				49CB605628AB8F4700EA8303 /* SceneDelegate.swift */,
+				49CB605D28AB8F4900EA8303 /* Assets.xcassets */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		4BE106A728AD71A000D28B1A /* Login VC */ = {
+			isa = PBXGroup;
+			children = (
+				49CB609528AB95A100EA8303 /* LoginViewController.swift */,
 				49CB609B28ABA59300EA8303 /* LoginView.swift */,
 				49CB609D28ABA5B500EA8303 /* SignInView.swift */,
 			);
-			name = Views;
+			name = "Login VC";
+			sourceTree = "<group>";
+		};
+		4BE106A828AD71D200D28B1A /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				4BE106A928AD71E000D28B1A /* Enums.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +149,7 @@
 			);
 			name = test;
 			packageProductDependencies = (
-				49CB609828AB998700EA8303 /* SnapKit */,
+				4BE106A428AD712F00D28B1A /* SnapKit */,
 			);
 			productName = test;
 			productReference = 49CB605128AB8F4700EA8303 /* test.app */;
@@ -150,7 +180,7 @@
 			);
 			mainGroup = 49CB604828AB8F4700EA8303;
 			packageReferences = (
-				49CB609728AB998700EA8303 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				4BE106A328AD712F00D28B1A /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 49CB605228AB8F4700EA8303 /* Products */;
 			projectDirPath = "";
@@ -183,8 +213,10 @@
 				49CB609428AB954B00EA8303 /* ViewControllerEXT.swift in Sources */,
 				49CB609E28ABA5B500EA8303 /* SignInView.swift in Sources */,
 				49CB609628AB95A100EA8303 /* LoginViewController.swift in Sources */,
+				4BE106AA28AD71E000D28B1A /* Enums.swift in Sources */,
 				49CB609C28ABA59300EA8303 /* LoginView.swift in Sources */,
 				49CB605728AB8F4700EA8303 /* SceneDelegate.swift in Sources */,
+				4BE106AC28AD72F300D28B1A /* TextFieldEXT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +434,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		49CB609728AB998700EA8303 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		4BE106A328AD712F00D28B1A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -413,9 +445,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		49CB609828AB998700EA8303 /* SnapKit */ = {
+		4BE106A428AD712F00D28B1A /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 49CB609728AB998700EA8303 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 4BE106A328AD712F00D28B1A /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

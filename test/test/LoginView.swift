@@ -11,6 +11,10 @@ class LoginView: UIView {
     
     //MARK: - Variables
     
+    var isRememberMe = true
+    
+    //MARK: - UI Elements
+    
     private lazy var emailLabel = getLabel(text: "Email",
                                            size: 14,
                                            weigth: .regular,
@@ -20,18 +24,6 @@ class LoginView: UIView {
                                               size: 14,
                                               weigth: .regular,
                                               color: "#231F20")
-    
-    private lazy var rememberMeLabel = getLabel(text: "Remember me",
-                                                size: 12,
-                                                weigth: .regular,
-                                                color: "#63666A")
-    
-    private lazy var forgotPasswordLabel = getLabel(text: "Forgot password?",
-                                                size: 12,
-                                                weigth: .regular,
-                                                color: "#FFB500")
-    
-    //MARK: - UI Elements
     
     private lazy var emailTextField: TextField = {
         let field = TextField()
@@ -76,11 +68,6 @@ class LoginView: UIView {
         emptyView.backgroundColor = .clear
         emptyView.addSubview(imageView)
         
-        //        let gesture = UITapGestureRecognizer(target: self,
-        //                                             action: #selector(didTapView))
-        //        emptyView.addGestureRecognizer(gesture)
-        
-        
         imageView.image = image
         field.rightView = emptyView
         
@@ -95,6 +82,40 @@ class LoginView: UIView {
         button.layer.cornerRadius = 3
         button.layer.borderWidth = 1
         
+        button.addTarget(self,
+                         action: #selector(didTapRememberMe),
+                         for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private lazy var rememberMeButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Remember me", for: .normal)
+        
+        let color = hexStringToUIColor(hex: "63666A")
+        
+        button.setTitleColor(color, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
+        
+        button.addTarget(self,
+                         action: #selector(didTapRememberMe),
+                         for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var forgotPasswordButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Forgot password?", for: .normal)
+        
+        let color = hexStringToUIColor(hex: "FFB500")
+        
+        button.setTitleColor(color, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
+        
+        button.addTarget(self,
+                         action: #selector(didTapForgotPassword),
+                         for: .touchUpInside)
         return button
     }()
     
@@ -123,8 +144,8 @@ class LoginView: UIView {
         addSubview(passwordLabel)
         addSubview(passwordTextField)
         addSubview(rememberMeBox)
-        addSubview(rememberMeLabel)
-        addSubview(forgotPasswordLabel)
+        addSubview(forgotPasswordButton)
+        addSubview(rememberMeButton)
         
         emailLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(28)
@@ -156,14 +177,15 @@ class LoginView: UIView {
             make.height.width.equalTo(20)
         }
         
-        rememberMeLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(rememberMeBox.snp.centerY)
-            make.left.equalTo(rememberMeBox.snp.right).offset(10)
-        }
-        
-        forgotPasswordLabel.snp.makeConstraints { make in
+        forgotPasswordButton.snp.makeConstraints { make in
             make.centerY.equalTo(rememberMeBox.snp.centerY)
             make.right.equalToSuperview().offset(-25)
+        }
+        
+        rememberMeButton.snp.makeConstraints { make in
+            make.centerY.equalTo(rememberMeBox.snp.centerY)
+            make.left.equalTo(rememberMeBox.snp.right).offset(10)
+
         }
     }
     
@@ -179,29 +201,19 @@ class LoginView: UIView {
         return label
     }
     
+    @objc private func didTapRememberMe() {
+        if isRememberMe {
+            rememberMeBox.backgroundColor = .systemGreen
+            isRememberMe = false
+        } else {
+            rememberMeBox.backgroundColor = .white
+            isRememberMe = true
+        }
+    }
     
-//    private func getBottomLabel(text: String, color: String) -> UILabel {
-//        let label = UILabel()
-//        label.text = text
-//        label.font = .systemFont(ofSize: 12, weight: .regular)
-//        label.textColor = hexStringToUIColor(hex: color)
-//        return label
-//    }
+    @objc private func didTapForgotPassword() {
+        print("Forgot password")
+    }
 }
 
-class TextField: UITextField {
-    
-    let padding = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 5)
-    
-    override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
-    }
-    
-    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
-    }
-    
-    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
-    }
-}
+
