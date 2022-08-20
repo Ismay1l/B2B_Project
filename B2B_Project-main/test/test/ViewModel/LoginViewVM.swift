@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LoginVM {
+class LoginViewVM {
     
     var categories = ["Item1", "Item2", "Item3"]
 }

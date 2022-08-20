@@ -180,7 +180,7 @@ class LoginView: UIView {
     //MARK: - Functions
     
     @objc private func didTapSignUp() {
-        delegate?.didTapSignUP()
+        delegate?.didTapSignUp()
     }
     
     private func enableEnterButton() {
@@ -188,13 +188,6 @@ class LoginView: UIView {
             enterButton.isEnabled = true
             enterButton.layer.opacity = 0
         }
-    }
-    
-    func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
     }
     
     private func setupUI () {
@@ -282,7 +275,7 @@ class LoginView: UIView {
         }
         
         footerLabel.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-48)
+//            make.bottom.equalToSuperview().offset(-48)
             make.left.equalToSuperview().offset(90)
             make.right.equalToSuperview().offset(-90)
             make.top.equalTo(enterButton.snp.bottom).offset(125)

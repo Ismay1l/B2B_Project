@@ -8,5 +8,5 @@
 import Foundation
 
 protocol LoginViewDelegate {
-    func didTapSignUP()
+    func didTapSignUp()
 }

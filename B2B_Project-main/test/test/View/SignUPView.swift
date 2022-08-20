@@ -8,11 +8,11 @@
 import UIKit
 import iOSDropDown
 
-class SignUPView: UIView {
+class SignUpView: UIView {
     
     //MARK: - Variables
     
-    let vm = LoginVM()
+    let vm = LoginViewVM()
     
     //MARK: - UI Elements
     

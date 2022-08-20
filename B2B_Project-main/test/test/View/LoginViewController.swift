@@ -14,49 +14,9 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     
     let loginView = LoginView()
     
-    let signInView = SignUPView()
+    let signInView = SignUpView()
     
     //MARK: - UIElements
-    
-    private lazy var containerView : UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        return view
-    }()
-    
-    private lazy var segmentedControlContainerView: UIView = {
-        let containerView = UIView()
-        containerView.backgroundColor = .clear
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        return containerView
-    }()
-    
-    lazy var segmentedControl: UISegmentedControl = {
-        let segmentedControl = UISegmentedControl()
-        
-        segmentedControl.backgroundColor = .clear
-        segmentedControl.tintColor = .white
-        
-        segmentedControl.insertSegment(withTitle: "Login", at: 0, animated: true)
-        segmentedControl.insertSegment(withTitle: "Sign up", at: 1, animated: true)
-        
-        segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.selectedSegmentTintColor = .white
-        
-        segmentedControl.setTitleTextAttributes([
-            NSAttributedString.Key.foregroundColor: UIColor.black,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)], for: .normal)
-        
-        segmentedControl.setTitleTextAttributes([
-            NSAttributedString.Key.foregroundColor: UIColor.orange,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)], for: .selected)
-        
-        segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
-        
-        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        
-        return segmentedControl
-    }()
     
     private lazy var headerLabel: UILabel = {
         let label = UILabel()
@@ -77,17 +37,6 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         return label
     }()
     
-    private lazy var bottomUnderlineView: UIView = {
-        let underlineView = UIView()
-        underlineView.backgroundColor = Constants.underlineViewColor
-        underlineView.translatesAutoresizingMaskIntoConstraints = false
-        return underlineView
-    }()
-    
-    private lazy var leadingDistanceConstraint: NSLayoutConstraint = {
-        return bottomUnderlineView.leftAnchor.constraint(equalTo: segmentedControl.leftAnchor)
-    }()
-    
     private lazy var headerLabelExpress: UILabel = {
         let label = UILabel()
         
@@ -99,24 +48,74 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         return label
     }()
     
-    private lazy var loginLabel: UILabel = {
+    private lazy var loginToYourAccountLabel: UILabel = {
         let label = UILabel()
         
         label.text = "Login to your account"
-        label.textColor = hexStringToUIColor(hex: "#231F20")
+        label.textColor = CustomColors.unselectedButtonColor
         
         label.font = .systemFont(ofSize: 24, weight: .medium)
         
         return label
     }()
     
+    private lazy var loginButton: UIButton = {
+        let button = UIButton()
+        
+        button.setTitle("Login", for: .normal)
+        button.setTitleColor(CustomColors.selectedButtonColor, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        
+        button.addTarget(self,
+                         action: #selector(didTapButton),
+                         for: .touchUpInside)
+        button.tag = 1
+        
+        return button
+    }()
+    
+    private lazy var signUpButton: UIButton = {
+        let button = UIButton()
+        
+        button.setTitle("Sign up", for: .normal)
+        button.setTitleColor(CustomColors.unselectedButtonColor, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        
+        button.addTarget(self,
+                         action: #selector(didTapButton),
+                         for: .touchUpInside)
+        button.tag = 2
+        
+        return button
+    }()
+    
+    private lazy var generalUnderline: UIView = {
+        let view = UIView()
+        view.backgroundColor = CustomColors.generalUnderlineColor
+        return view
+    }()
+    
+    private lazy var selectedButtonUnderline: UIView = {
+        let view = UIView()
+        view.backgroundColor = CustomColors.selectedButtonColor
+        return view
+    }()
+    
+    private lazy var containerView : UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     //MARK: - Parent Delegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
         
-        fillContainer(segmentView: loginView)
+        fillContainer(subView: loginView)
+        
         configureConstraints()
         
         loginView.delegate = self
@@ -124,96 +123,123 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     
     //MARK: - Functions
     
-    func didTapSignUP() {
-        fillContainer(segmentView: signInView)
+    func didTapSignUp() {
+        loginView.removeFromSuperview()
+        fillContainer(subView: signInView)
     }
     
     private func configureConstraints() {
         view.addSubview(headerLabelExpress)
         view.addSubview(headerLabel)
-        view.addSubview(loginLabel)
-        view.addSubview(segmentedControlContainerView)
-        segmentedControlContainerView.addSubview(segmentedControl)
-        segmentedControlContainerView.addSubview(bottomUnderlineView)
-        self.view.addSubview(self.containerView)
+        view.addSubview(loginToYourAccountLabel)
+        view.addSubview(loginButton)
+        view.addSubview(signUpButton)
+        view.addSubview(containerView)
+        view.addSubview(generalUnderline)
         
         let safeLayoutGuide = view.safeAreaLayoutGuide
         
-        segmentedControlContainerView.snp.makeConstraints { make in
-            make.top.equalTo(loginLabel.snp.bottom).offset(32)
-            make.left.equalTo(safeLayoutGuide.snp.left)
-            make.right.equalTo(safeLayoutGuide.snp.right)
-        }
-        
-        NSLayoutConstraint.activate([
-            segmentedControl.topAnchor.constraint(equalTo: segmentedControlContainerView.topAnchor),
-            segmentedControl.leadingAnchor.constraint(equalTo: segmentedControlContainerView.leadingAnchor),
-            segmentedControl.centerXAnchor.constraint(equalTo: segmentedControlContainerView.centerXAnchor),
-            segmentedControl.centerYAnchor.constraint(equalTo: segmentedControlContainerView.centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            bottomUnderlineView.bottomAnchor.constraint(equalTo: segmentedControl.bottomAnchor),
-            bottomUnderlineView.heightAnchor.constraint(equalToConstant: Constants.underlineViewHeight),
-            leadingDistanceConstraint,
-            bottomUnderlineView.widthAnchor.constraint(equalTo: segmentedControl.widthAnchor, multiplier: 1 / CGFloat(segmentedControl.numberOfSegments))
-        ])
-        
         headerLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(view.safeAreaLayoutGuide.snp.centerX)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(48)
+            make.centerX.equalTo(safeLayoutGuide.snp.centerX)
+            make.top.equalTo(safeLayoutGuide.snp.top).offset(48)
         }
         
         headerLabelExpress.snp.makeConstraints { make in
-            make.centerX.equalTo(view.safeAreaLayoutGuide.snp.centerX)
+            make.centerX.equalTo(safeLayoutGuide.snp.centerX)
             make.top.equalTo(headerLabel.snp.bottom).offset(-10)
         }
         
-        loginLabel.snp.makeConstraints { make in
+        loginToYourAccountLabel.snp.makeConstraints { make in
             make.top.equalTo(headerLabelExpress.snp.bottom).offset(24)
-            make.centerX.equalTo(view.safeAreaLayoutGuide.snp.centerX)
+            make.centerX.equalTo(safeLayoutGuide.snp.centerX)
+        }
+        
+        loginButton.snp.makeConstraints { make in
+            make.top.equalTo(loginToYourAccountLabel.snp.bottom).offset(32)
+            make.left.equalTo(safeLayoutGuide.snp.left).offset(72)
+        }
+        
+        signUpButton.snp.makeConstraints { make in
+            make.top.equalTo(loginToYourAccountLabel.snp.bottom).offset(32)
+            make.right.equalTo(safeLayoutGuide.snp.right).offset(-63)
+        }
+        
+        generalUnderline.snp.makeConstraints { make in
+            make.left.equalTo(safeLayoutGuide.snp.left)
+            make.right.equalTo(safeLayoutGuide.snp.right)
+            make.height.equalTo(2)
+            make.top.equalTo(loginButton.snp.bottom).offset(10)
+        }
+        
+        view.addSubview(selectedButtonUnderline)
+        
+        let width = loginButton.frame.size.width + 120
+        selectedButtonUnderline.snp.makeConstraints { make in
+            make.width.equalTo(width)
+            make.centerX.equalTo(loginButton.snp.centerX)
+            make.centerY.equalTo(generalUnderline.snp.centerY)
+            make.height.equalTo(2)
         }
         
         containerView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControlContainerView.snp.bottom)
-            make.left.equalTo(view.safeAreaLayoutGuide.snp.left)
-            make.right.equalTo(view.safeAreaLayoutGuide.snp.right)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.top.equalTo(generalUnderline.snp.bottom)
+            make.left.equalTo(safeLayoutGuide.snp.left)
+            make.right.equalTo(safeLayoutGuide.snp.right)
+            make.bottom.equalTo(safeLayoutGuide.snp.bottom)
         }
     }
     
-    @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            self.fillContainer(segmentView: self.loginView)
-            break
+    @objc private func didTapButton(_ sender: UIButton) {
+        switch sender.tag {
         case 1:
-            self.fillContainer(segmentView: self.signInView)
-            break
+            fillContainer(subView: loginView)
+            loginButton.setTitleColor(CustomColors.selectedButtonColor, for: .normal)
+            signUpButton.setTitleColor(CustomColors.unselectedButtonColor, for: .normal)
+            
+            selectedButtonUnderline.removeFromSuperview()
+            
+            view.addSubview(selectedButtonUnderline)
+            
+            let width = loginButton.frame.size.width + 120
+            selectedButtonUnderline.snp.makeConstraints { make in
+                make.width.equalTo(width)
+                make.centerX.equalTo(loginButton.snp.centerX)
+                make.centerY.equalTo(generalUnderline.snp.centerY)
+                make.height.equalTo(2)
+            }
+            
+        case 2:
+            fillContainer(subView: signInView)
+            signUpButton.setTitleColor(CustomColors.selectedButtonColor, for: .normal)
+            loginButton.setTitleColor(CustomColors.unselectedButtonColor, for: .normal)
+            
+            selectedButtonUnderline.removeFromSuperview()
+            
+            view.addSubview(selectedButtonUnderline)
+            
+            let width = signUpButton.frame.size.width + 120
+            selectedButtonUnderline.snp.makeConstraints { make in
+                make.width.equalTo(width)
+                make.centerX.equalTo(signUpButton.snp.centerX)
+                make.centerY.equalTo(generalUnderline.snp.centerY)
+                make.height.equalTo(2)
+            }
+            
         default:
-            break
+            fillContainer(subView: loginView)
         }
-        changeSegmentedControlLinePosition()
     }
     
-    private func fillContainer ( segmentView: UIView) {
+    private func fillContainer ( subView: UIView) {
+        
         self.containerView.subviews.forEach { subview in
             subview.removeFromSuperview()
         }
         
-        self.containerView.addSubview(segmentView)
+        self.containerView.addSubview(subView)
         
-        segmentView.snp.makeConstraints { make in
+        subView.snp.makeConstraints { make in
             make.top.left.right.bottom.equalToSuperview()
         }
-    }
-    
-    private func changeSegmentedControlLinePosition() {
-        let segmentIndex = CGFloat(segmentedControl.selectedSegmentIndex)
-        let segmentWidth = segmentedControl.frame.width / CGFloat(segmentedControl.numberOfSegments)
-        let leadingDistance = segmentWidth * segmentIndex
-        UIView.animate(withDuration: 0.3, animations: { [weak self] in
-            self?.leadingDistanceConstraint.constant = leadingDistance
-        })
     }
 }
