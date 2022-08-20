@@ -8,7 +8,7 @@
 import UIKit
 import iOSDropDown
 
-class SignInView: UIView {
+class SignUPView: UIView {
     
     //MARK: - Variables
     
@@ -182,7 +182,7 @@ class SignInView: UIView {
             make.top.equalToSuperview()
             make.left.equalToSuperview()
             make.right.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-10)
         }
         
         nameLastnameLabel.snp.makeConstraints { make in

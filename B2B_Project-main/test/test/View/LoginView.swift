@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol LoginViewDelegate {
-    
-    func didTapSignUP()
-}
-
 class LoginView: UIView {
     
     //MARK: - Variables

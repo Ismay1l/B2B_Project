@@ -14,7 +14,7 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     
     let loginView = LoginView()
     
-    let signInView = SignInView()
+    let signInView = SignUPView()
     
     //MARK: - UIElements
     
@@ -137,7 +137,7 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         segmentedControlContainerView.addSubview(bottomUnderlineView)
         self.view.addSubview(self.containerView)
         
-        let safeLayoutGuide = self.view.safeAreaLayoutGuide
+        let safeLayoutGuide = view.safeAreaLayoutGuide
         
         segmentedControlContainerView.snp.makeConstraints { make in
             make.top.equalTo(loginLabel.snp.bottom).offset(32)
@@ -176,9 +176,9 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         
         containerView.snp.makeConstraints { make in
             make.top.equalTo(segmentedControlContainerView.snp.bottom)
-            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left)
-            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+            make.left.equalTo(view.safeAreaLayoutGuide.snp.left)
+            make.right.equalTo(view.safeAreaLayoutGuide.snp.right)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
     

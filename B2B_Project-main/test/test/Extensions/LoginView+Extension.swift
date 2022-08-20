@@ -12,7 +12,7 @@ extension LoginView: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        return true;
+        return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

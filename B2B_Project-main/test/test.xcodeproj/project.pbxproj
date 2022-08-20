@@ -7,26 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4947A55A28AE1F1C00DCF91C /* LoginViewEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4947A55928AE1F1C00DCF91C /* LoginViewEXT.swift */; };
+		4947A55A28AE1F1C00DCF91C /* LoginView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4947A55928AE1F1C00DCF91C /* LoginView+Extension.swift */; };
 		4947A55C28AE4F9800DCF91C /* GeneralFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4947A55B28AE4F9800DCF91C /* GeneralFunctions.swift */; };
-		4947A55F28AE5B3600DCF91C /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 4947A55E28AE5B3600DCF91C /* iOSDropDown */; };
 		4947A56528AE5FFC00DCF91C /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4947A56428AE5FFC00DCF91C /* LoginVM.swift */; };
 		49CB605528AB8F4700EA8303 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB605428AB8F4700EA8303 /* AppDelegate.swift */; };
 		49CB605728AB8F4700EA8303 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB605628AB8F4700EA8303 /* SceneDelegate.swift */; };
 		49CB605C28AB8F4700EA8303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CB605A28AB8F4700EA8303 /* Main.storyboard */; };
 		49CB605E28AB8F4900EA8303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CB605D28AB8F4900EA8303 /* Assets.xcassets */; };
 		49CB606128AB8F4900EA8303 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CB605F28AB8F4900EA8303 /* LaunchScreen.storyboard */; };
-		49CB609428AB954B00EA8303 /* ViewControllerEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB609328AB954B00EA8303 /* ViewControllerEXT.swift */; };
+		49CB609428AB954B00EA8303 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB609328AB954B00EA8303 /* ViewController+Extension.swift */; };
 		49CB609628AB95A100EA8303 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB609528AB95A100EA8303 /* LoginViewController.swift */; };
 		49CB609C28ABA59300EA8303 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB609B28ABA59300EA8303 /* LoginView.swift */; };
-		49CB609E28ABA5B500EA8303 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB609D28ABA5B500EA8303 /* SignInView.swift */; };
+		49CB609E28ABA5B500EA8303 /* SignUPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB609D28ABA5B500EA8303 /* SignUPView.swift */; };
+		4B229C8A28B1591A00CFFB0C /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 4B229C8928B1591A00CFFB0C /* iOSDropDown */; };
+		4B229C9428B15FCD00CFFB0C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B229C9328B15FCD00CFFB0C /* Protocols.swift */; };
 		4BE106A528AD712F00D28B1A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4BE106A428AD712F00D28B1A /* SnapKit */; };
-		4BE106AA28AD71E000D28B1A /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE106A928AD71E000D28B1A /* Enums.swift */; };
-		4BE106AC28AD72F300D28B1A /* TextFieldEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE106AB28AD72F300D28B1A /* TextFieldEXT.swift */; };
+		4BE106AA28AD71E000D28B1A /* Constants Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE106A928AD71E000D28B1A /* Constants Enum.swift */; };
+		4BE106AC28AD72F300D28B1A /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE106AB28AD72F300D28B1A /* TextField+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4947A55928AE1F1C00DCF91C /* LoginViewEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewEXT.swift; sourceTree = "<group>"; };
+		4947A55928AE1F1C00DCF91C /* LoginView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginView+Extension.swift"; sourceTree = "<group>"; };
 		4947A55B28AE4F9800DCF91C /* GeneralFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralFunctions.swift; sourceTree = "<group>"; };
 		4947A56428AE5FFC00DCF91C /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		49CB605128AB8F4700EA8303 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,13 +36,14 @@
 		49CB605B28AB8F4700EA8303 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49CB605D28AB8F4900EA8303 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49CB606028AB8F4900EA8303 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		49CB606228AB8F4900EA8303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49CB609328AB954B00EA8303 /* ViewControllerEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEXT.swift; sourceTree = "<group>"; };
+		49CB606228AB8F4900EA8303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = test/Info.plist; sourceTree = SOURCE_ROOT; };
+		49CB609328AB954B00EA8303 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		49CB609528AB95A100EA8303 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		49CB609B28ABA59300EA8303 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		49CB609D28ABA5B500EA8303 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
-		4BE106A928AD71E000D28B1A /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
-		4BE106AB28AD72F300D28B1A /* TextFieldEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldEXT.swift; sourceTree = "<group>"; };
+		49CB609D28ABA5B500EA8303 /* SignUPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPView.swift; sourceTree = "<group>"; };
+		4B229C9328B15FCD00CFFB0C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		4BE106A928AD71E000D28B1A /* Constants Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants Enum.swift"; sourceTree = "<group>"; };
+		4BE106AB28AD72F300D28B1A /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,21 +52,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BE106A528AD712F00D28B1A /* SnapKit in Frameworks */,
-				4947A55F28AE5B3600DCF91C /* iOSDropDown in Frameworks */,
+				4B229C8A28B1591A00CFFB0C /* iOSDropDown in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4947A56328AE5FEF00DCF91C /* View Models */ = {
-			isa = PBXGroup;
-			children = (
-				4947A56428AE5FFC00DCF91C /* LoginVM.swift */,
-			);
-			path = "View Models";
-			sourceTree = "<group>";
-		};
 		49CB604828AB8F4700EA8303 = {
 			isa = PBXGroup;
 			children = (
@@ -84,71 +78,96 @@
 		49CB605328AB8F4700EA8303 /* test */ = {
 			isa = PBXGroup;
 			children = (
-				4947A56328AE5FEF00DCF91C /* View Models */,
-				4BE106A828AD71D200D28B1A /* Enums */,
-				49CB609A28ABA57800EA8303 /* Views */,
-				49CB609228AB953A00EA8303 /* Extensions */,
-				49CB609128AB947800EA8303 /* Controllers */,
-				4BE106A628AD717C00D28B1A /* Other */,
 				49CB606228AB8F4900EA8303 /* Info.plist */,
+				49CB609128AB947800EA8303 /* App */,
+				4B229C8F28B15E9300CFFB0C /* Managers */,
+				49CB609228AB953A00EA8303 /* Extensions */,
+				4B229C9028B15EBC00CFFB0C /* Utilities */,
+				4B229C8E28B15DFA00CFFB0C /* Supporting Files */,
 			);
 			path = test;
 			sourceTree = "<group>";
 		};
-		49CB609128AB947800EA8303 /* Controllers */ = {
+		49CB609128AB947800EA8303 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				4BE106A728AD71A000D28B1A /* Login VC */,
+				4BE106A728AD71A000D28B1A /* Login */,
 			);
-			name = Controllers;
+			name = App;
 			sourceTree = "<group>";
 		};
 		49CB609228AB953A00EA8303 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				49CB609328AB954B00EA8303 /* ViewControllerEXT.swift */,
-				4BE106AB28AD72F300D28B1A /* TextFieldEXT.swift */,
-				4947A55928AE1F1C00DCF91C /* LoginViewEXT.swift */,
-				4947A55B28AE4F9800DCF91C /* GeneralFunctions.swift */,
+				49CB609328AB954B00EA8303 /* ViewController+Extension.swift */,
+				4BE106AB28AD72F300D28B1A /* TextField+Extension.swift */,
+				4947A55928AE1F1C00DCF91C /* LoginView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		49CB609A28ABA57800EA8303 /* Views */ = {
+		4B229C8B28B15DA900CFFB0C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				49CB605A28AB8F4700EA8303 /* Main.storyboard */,
-				49CB605F28AB8F4900EA8303 /* LaunchScreen.storyboard */,
 			);
-			name = Views;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		4BE106A628AD717C00D28B1A /* Other */ = {
+		4B229C8C28B15DB400CFFB0C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				49CB605428AB8F4700EA8303 /* AppDelegate.swift */,
-				49CB605628AB8F4700EA8303 /* SceneDelegate.swift */,
-				49CB605D28AB8F4900EA8303 /* Assets.xcassets */,
+				4947A56428AE5FFC00DCF91C /* LoginVM.swift */,
 			);
-			name = Other;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		4BE106A728AD71A000D28B1A /* Login VC */ = {
+		4B229C8D28B15DC000CFFB0C /* View */ = {
 			isa = PBXGroup;
 			children = (
 				49CB609528AB95A100EA8303 /* LoginViewController.swift */,
 				49CB609B28ABA59300EA8303 /* LoginView.swift */,
-				49CB609D28ABA5B500EA8303 /* SignInView.swift */,
+				49CB609D28ABA5B500EA8303 /* SignUPView.swift */,
 			);
-			name = "Login VC";
+			path = View;
 			sourceTree = "<group>";
 		};
-		4BE106A828AD71D200D28B1A /* Enums */ = {
+		4B229C8E28B15DFA00CFFB0C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4BE106A928AD71E000D28B1A /* Enums.swift */,
+				49CB605628AB8F4700EA8303 /* SceneDelegate.swift */,
+				49CB605A28AB8F4700EA8303 /* Main.storyboard */,
+				49CB605F28AB8F4900EA8303 /* LaunchScreen.storyboard */,
+				49CB605428AB8F4700EA8303 /* AppDelegate.swift */,
+				49CB605D28AB8F4900EA8303 /* Assets.xcassets */,
 			);
-			path = Enums;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4B229C8F28B15E9300CFFB0C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		4B229C9028B15EBC00CFFB0C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4947A55B28AE4F9800DCF91C /* GeneralFunctions.swift */,
+				4BE106A928AD71E000D28B1A /* Constants Enum.swift */,
+				4B229C9328B15FCD00CFFB0C /* Protocols.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4BE106A728AD71A000D28B1A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4B229C8D28B15DC000CFFB0C /* View */,
+				4B229C8C28B15DB400CFFB0C /* ViewModel */,
+				4B229C8B28B15DA900CFFB0C /* Model */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,7 +188,7 @@
 			name = test;
 			packageProductDependencies = (
 				4BE106A428AD712F00D28B1A /* SnapKit */,
-				4947A55E28AE5B3600DCF91C /* iOSDropDown */,
+				4B229C8928B1591A00CFFB0C /* iOSDropDown */,
 			);
 			productName = test;
 			productReference = 49CB605128AB8F4700EA8303 /* test.app */;
@@ -201,7 +220,7 @@
 			mainGroup = 49CB604828AB8F4700EA8303;
 			packageReferences = (
 				4BE106A328AD712F00D28B1A /* XCRemoteSwiftPackageReference "SnapKit" */,
-				4947A55D28AE5B3600DCF91C /* XCRemoteSwiftPackageReference "iOSDropDown" */,
+				4B229C8828B1591A00CFFB0C /* XCRemoteSwiftPackageReference "iOSDropDown" */,
 			);
 			productRefGroup = 49CB605228AB8F4700EA8303 /* Products */;
 			projectDirPath = "";
@@ -230,17 +249,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4947A55A28AE1F1C00DCF91C /* LoginViewEXT.swift in Sources */,
+				4947A55A28AE1F1C00DCF91C /* LoginView+Extension.swift in Sources */,
 				49CB605528AB8F4700EA8303 /* AppDelegate.swift in Sources */,
-				49CB609428AB954B00EA8303 /* ViewControllerEXT.swift in Sources */,
-				49CB609E28ABA5B500EA8303 /* SignInView.swift in Sources */,
+				49CB609428AB954B00EA8303 /* ViewController+Extension.swift in Sources */,
+				4B229C9428B15FCD00CFFB0C /* Protocols.swift in Sources */,
+				49CB609E28ABA5B500EA8303 /* SignUPView.swift in Sources */,
 				49CB609628AB95A100EA8303 /* LoginViewController.swift in Sources */,
-				4BE106AA28AD71E000D28B1A /* Enums.swift in Sources */,
+				4BE106AA28AD71E000D28B1A /* Constants Enum.swift in Sources */,
 				4947A55C28AE4F9800DCF91C /* GeneralFunctions.swift in Sources */,
 				49CB609C28ABA59300EA8303 /* LoginView.swift in Sources */,
 				4947A56528AE5FFC00DCF91C /* LoginVM.swift in Sources */,
 				49CB605728AB8F4700EA8303 /* SceneDelegate.swift in Sources */,
-				4BE106AC28AD72F300D28B1A /* TextFieldEXT.swift in Sources */,
+				4BE106AC28AD72F300D28B1A /* TextField+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,12 +478,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4947A55D28AE5B3600DCF91C /* XCRemoteSwiftPackageReference "iOSDropDown" */ = {
+		4B229C8828B1591A00CFFB0C /* XCRemoteSwiftPackageReference "iOSDropDown" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jriosdev/iOSDropDown.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.4.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 		4BE106A328AD712F00D28B1A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -477,9 +497,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4947A55E28AE5B3600DCF91C /* iOSDropDown */ = {
+		4B229C8928B1591A00CFFB0C /* iOSDropDown */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4947A55D28AE5B3600DCF91C /* XCRemoteSwiftPackageReference "iOSDropDown" */;
+			package = 4B229C8828B1591A00CFFB0C /* XCRemoteSwiftPackageReference "iOSDropDown" */;
 			productName = iOSDropDown;
 		};
 		4BE106A428AD712F00D28B1A /* SnapKit */ = {
