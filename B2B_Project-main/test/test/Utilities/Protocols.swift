@@ -10,3 +10,12 @@ import Foundation
 protocol LoginViewDelegate {
     func didTapSignUp()
 }
+
+protocol SignUpViewDelegate {
+    func didTapLogin()
+    func didTapNext()
+}
+
+protocol SuccessViewDelegate {
+    func didTapBackButton()
+}

@@ -20,6 +20,20 @@
 		49CB609E28ABA5B500EA8303 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB609D28ABA5B500EA8303 /* SignUpView.swift */; };
 		4B229C8A28B1591A00CFFB0C /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 4B229C8928B1591A00CFFB0C /* iOSDropDown */; };
 		4B229C9428B15FCD00CFFB0C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B229C9328B15FCD00CFFB0C /* Protocols.swift */; };
+		4B8AC8D228B2937000B581EC /* SignUpView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8D128B2937000B581EC /* SignUpView+Extension.swift */; };
+		4B8AC8D628B29B4E00B581EC /* LoginViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8D528B29B4E00B581EC /* LoginViewController+Extension.swift */; };
+		4B8AC8D828B29C2F00B581EC /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8D728B29C2F00B581EC /* SuccessView.swift */; };
+		4B8AC8DD28B2AB5500B581EC /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8DC28B2AB5500B581EC /* MainTableViewController.swift */; };
+		4B8AC8E428B2ABD500B581EC /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8E328B2ABD400B581EC /* HomeNavigationController.swift */; };
+		4B8AC8E628B2ABF500B581EC /* SearchNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8E528B2ABF500B581EC /* SearchNavigationController.swift */; };
+		4B8AC8E828B2AC2000B581EC /* AddTenderNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8E728B2AC2000B581EC /* AddTenderNavigationController.swift */; };
+		4B8AC8EA28B2AC3900B581EC /* StatisticsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8E928B2AC3900B581EC /* StatisticsNavigationController.swift */; };
+		4B8AC8EC28B2AC4800B581EC /* AccountNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8EB28B2AC4800B581EC /* AccountNavigationController.swift */; };
+		4B8AC8EF28B2ACC400B581EC /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8EE28B2ACC400B581EC /* HomeVC.swift */; };
+		4B8AC8F228B2AD0B00B581EC /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8F128B2AD0B00B581EC /* SearchVC.swift */; };
+		4B8AC8F528B2AD3100B581EC /* AddTenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8F428B2AD3100B581EC /* AddTenderVC.swift */; };
+		4B8AC8F828B2AD5A00B581EC /* StatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8F728B2AD5A00B581EC /* StatisticsVC.swift */; };
+		4B8AC8FB28B2AD6E00B581EC /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8FA28B2AD6E00B581EC /* AccountVC.swift */; };
 		4BE106A528AD712F00D28B1A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4BE106A428AD712F00D28B1A /* SnapKit */; };
 		4BE106AA28AD71E000D28B1A /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE106A928AD71E000D28B1A /* Enums.swift */; };
 		4BE106AC28AD72F300D28B1A /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE106AB28AD72F300D28B1A /* TextField+Extension.swift */; };
@@ -40,6 +54,20 @@
 		49CB609B28ABA59300EA8303 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		49CB609D28ABA5B500EA8303 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		4B229C9328B15FCD00CFFB0C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		4B8AC8D128B2937000B581EC /* SignUpView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpView+Extension.swift"; sourceTree = "<group>"; };
+		4B8AC8D528B29B4E00B581EC /* LoginViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Extension.swift"; sourceTree = "<group>"; };
+		4B8AC8D728B29C2F00B581EC /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		4B8AC8DC28B2AB5500B581EC /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		4B8AC8E328B2ABD400B581EC /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
+		4B8AC8E528B2ABF500B581EC /* SearchNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNavigationController.swift; sourceTree = "<group>"; };
+		4B8AC8E728B2AC2000B581EC /* AddTenderNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTenderNavigationController.swift; sourceTree = "<group>"; };
+		4B8AC8E928B2AC3900B581EC /* StatisticsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsNavigationController.swift; sourceTree = "<group>"; };
+		4B8AC8EB28B2AC4800B581EC /* AccountNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNavigationController.swift; sourceTree = "<group>"; };
+		4B8AC8EE28B2ACC400B581EC /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		4B8AC8F128B2AD0B00B581EC /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		4B8AC8F428B2AD3100B581EC /* AddTenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTenderVC.swift; sourceTree = "<group>"; };
+		4B8AC8F728B2AD5A00B581EC /* StatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVC.swift; sourceTree = "<group>"; };
+		4B8AC8FA28B2AD6E00B581EC /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		4BE106A928AD71E000D28B1A /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		4BE106AB28AD72F300D28B1A /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,7 +106,6 @@
 			children = (
 				49CB606228AB8F4900EA8303 /* Info.plist */,
 				49CB609128AB947800EA8303 /* App */,
-				4B229C8F28B15E9300CFFB0C /* Managers */,
 				49CB609228AB953A00EA8303 /* Extensions */,
 				4B229C9028B15EBC00CFFB0C /* Utilities */,
 				4B229C8E28B15DFA00CFFB0C /* Supporting Files */,
@@ -105,6 +132,8 @@
 			children = (
 				4BE106AB28AD72F300D28B1A /* TextField+Extension.swift */,
 				4947A55928AE1F1C00DCF91C /* LoginView+Extension.swift */,
+				4B8AC8D128B2937000B581EC /* SignUpView+Extension.swift */,
+				4B8AC8D528B29B4E00B581EC /* LoginViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -123,6 +152,7 @@
 				49CB609528AB95A100EA8303 /* LoginViewController.swift */,
 				49CB609B28ABA59300EA8303 /* LoginView.swift */,
 				49CB609D28ABA5B500EA8303 /* SignUpView.swift */,
+				4B8AC8D728B29C2F00B581EC /* SuccessView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -156,9 +186,103 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		4B8AC8DB28B2AB3500B581EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B8AC8DC28B2AB5500B581EC /* MainTableViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4B8AC8DE28B2AB9C00B581EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B8AC8ED28B2AC7500B581EC /* HomeVC */,
+				4B8AC8E328B2ABD400B581EC /* HomeNavigationController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4B8AC8DF28B2ABA100B581EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B8AC8F028B2ACDF00B581EC /* SearchVC */,
+				4B8AC8E528B2ABF500B581EC /* SearchNavigationController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4B8AC8E028B2ABA700B581EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B8AC8F328B2AD2200B581EC /* AddTenderVC */,
+				4B8AC8E728B2AC2000B581EC /* AddTenderNavigationController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4B8AC8E128B2ABAC00B581EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B8AC8F628B2AD4900B581EC /* StatisticsVC */,
+				4B8AC8E928B2AC3900B581EC /* StatisticsNavigationController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4B8AC8E228B2ABB000B581EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B8AC8F928B2AD5F00B581EC /* AccountVC */,
+				4B8AC8EB28B2AC4800B581EC /* AccountNavigationController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4B8AC8ED28B2AC7500B581EC /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				4B8AC8EE28B2ACC400B581EC /* HomeVC.swift */,
+			);
+			name = HomeVC;
+			sourceTree = "<group>";
+		};
+		4B8AC8F028B2ACDF00B581EC /* SearchVC */ = {
+			isa = PBXGroup;
+			children = (
+				4B8AC8F128B2AD0B00B581EC /* SearchVC.swift */,
+			);
+			name = SearchVC;
+			sourceTree = "<group>";
+		};
+		4B8AC8F328B2AD2200B581EC /* AddTenderVC */ = {
+			isa = PBXGroup;
+			children = (
+				4B8AC8F428B2AD3100B581EC /* AddTenderVC.swift */,
+			);
+			name = AddTenderVC;
+			sourceTree = "<group>";
+		};
+		4B8AC8F628B2AD4900B581EC /* StatisticsVC */ = {
+			isa = PBXGroup;
+			children = (
+				4B8AC8F728B2AD5A00B581EC /* StatisticsVC.swift */,
+			);
+			name = StatisticsVC;
+			sourceTree = "<group>";
+		};
+		4B8AC8F928B2AD5F00B581EC /* AccountVC */ = {
+			isa = PBXGroup;
+			children = (
+				4B8AC8FA28B2AD6E00B581EC /* AccountVC.swift */,
+			);
+			name = AccountVC;
+			sourceTree = "<group>";
+		};
 		4BE106A728AD71A000D28B1A /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				4B229C8F28B15E9300CFFB0C /* Managers */,
 				4B229C8D28B15DC000CFFB0C /* View */,
 				4B229C8C28B15DB400CFFB0C /* ViewModel */,
 			);
@@ -168,6 +292,7 @@
 		4BE5199128B1929500A057C0 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				4B8AC8DB28B2AB3500B581EC /* View */,
 			);
 			name = TabBar;
 			sourceTree = "<group>";
@@ -175,6 +300,7 @@
 		4BE5199228B192AA00A057C0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4B8AC8DE28B2AB9C00B581EC /* View */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -182,6 +308,7 @@
 		4BE5199328B1931D00A057C0 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				4B8AC8DF28B2ABA100B581EC /* View */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -189,6 +316,7 @@
 		4BE5199428B1932900A057C0 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
+				4B8AC8E128B2ABAC00B581EC /* View */,
 			);
 			name = Statistics;
 			sourceTree = "<group>";
@@ -196,6 +324,7 @@
 		4BE5199528B1933800A057C0 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				4B8AC8E228B2ABB000B581EC /* View */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -203,6 +332,7 @@
 		4BE5199628B193BA00A057C0 /* AddTender */ = {
 			isa = PBXGroup;
 			children = (
+				4B8AC8E028B2ABA700B581EC /* View */,
 			);
 			name = AddTender;
 			sourceTree = "<group>";
@@ -287,15 +417,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				4947A55A28AE1F1C00DCF91C /* LoginView+Extension.swift in Sources */,
+				4B8AC8FB28B2AD6E00B581EC /* AccountVC.swift in Sources */,
+				4B8AC8E828B2AC2000B581EC /* AddTenderNavigationController.swift in Sources */,
 				49CB605528AB8F4700EA8303 /* AppDelegate.swift in Sources */,
 				4B229C9428B15FCD00CFFB0C /* Protocols.swift in Sources */,
 				49CB609E28ABA5B500EA8303 /* SignUpView.swift in Sources */,
 				49CB609628AB95A100EA8303 /* LoginViewController.swift in Sources */,
+				4B8AC8E628B2ABF500B581EC /* SearchNavigationController.swift in Sources */,
+				4B8AC8EA28B2AC3900B581EC /* StatisticsNavigationController.swift in Sources */,
 				4BE106AA28AD71E000D28B1A /* Enums.swift in Sources */,
+				4B8AC8E428B2ABD500B581EC /* HomeNavigationController.swift in Sources */,
+				4B8AC8D228B2937000B581EC /* SignUpView+Extension.swift in Sources */,
 				4947A55C28AE4F9800DCF91C /* GeneralFunctions.swift in Sources */,
+				4B8AC8F228B2AD0B00B581EC /* SearchVC.swift in Sources */,
+				4B8AC8F528B2AD3100B581EC /* AddTenderVC.swift in Sources */,
+				4B8AC8D828B29C2F00B581EC /* SuccessView.swift in Sources */,
 				49CB609C28ABA59300EA8303 /* LoginView.swift in Sources */,
+				4B8AC8D628B29B4E00B581EC /* LoginViewController+Extension.swift in Sources */,
+				4B8AC8F828B2AD5A00B581EC /* StatisticsVC.swift in Sources */,
+				4B8AC8EF28B2ACC400B581EC /* HomeVC.swift in Sources */,
+				4B8AC8EC28B2AC4800B581EC /* AccountNavigationController.swift in Sources */,
 				4947A56528AE5FFC00DCF91C /* LoginViewVM.swift in Sources */,
 				49CB605728AB8F4700EA8303 /* SceneDelegate.swift in Sources */,
+				4B8AC8DD28B2AB5500B581EC /* MainTableViewController.swift in Sources */,
 				4BE106AC28AD72F300D28B1A /* TextField+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +587,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XKVWQB6CWU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = test/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -470,6 +615,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XKVWQB6CWU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = test/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

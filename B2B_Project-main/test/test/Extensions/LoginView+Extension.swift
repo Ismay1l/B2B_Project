@@ -65,6 +65,9 @@ extension LoginView: UITextFieldDelegate {
             emailTextField.rightView = nil
             addSubview(wrongEmailAlertLabel)
             
+            enterButton.isEnabled = false
+            enterButton.layer.opacity = 0.5
+            
             passwordLabel.removeFromSuperview()
             passwordTextField.removeFromSuperview()
             rememberMeBox.removeFromSuperview()

@@ -11,6 +11,8 @@ class LoginView: UIView {
     
     //MARK: - Variables
     
+    let successView = SuccessView()
+    
     var isRememberMe = true
     
     var isPasswordHidden = true
@@ -46,14 +48,14 @@ class LoginView: UIView {
     
     lazy var emailTextField: EmailTextField = {
         let field = EmailTextField()
-        let color = hexStringToUIColor(hex: "#D0D0CE")
+        let textColor = CustomColors.placeHolderColor
         field.attributedPlaceholder = NSAttributedString(
             string: "Enter your email",
-            attributes: [NSAttributedString.Key.foregroundColor: color, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14, weight: .regular)])
+            attributes: [NSAttributedString.Key.foregroundColor: textColor, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14, weight: .regular)])
         field.layer.cornerRadius = 10
         field.clipsToBounds = true
         field.layer.borderWidth = 1
-        let borderColor = hexStringToUIColor(hex: "#D0D0CE")
+        let borderColor = CustomColors.placeHolderColor
         field.layer.borderColor = borderColor.cgColor
         
         field.textColor = hexStringToUIColor(hex: "#231F20")
@@ -64,14 +66,14 @@ class LoginView: UIView {
     
     lazy var passwordTextField: PasswordTextField = {
         let field = PasswordTextField()
-        let color = hexStringToUIColor(hex: "#D0D0CE")
+        let textColor = CustomColors.placeHolderColor
         field.attributedPlaceholder = NSAttributedString(
             string: "Password",
-            attributes: [NSAttributedString.Key.foregroundColor: color, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14, weight: .regular)])
+            attributes: [NSAttributedString.Key.foregroundColor: textColor, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14, weight: .regular)])
         field.layer.cornerRadius = 10
         field.clipsToBounds = true
         field.layer.borderWidth = 1
-        let borderColor = hexStringToUIColor(hex: "#D0D0CE")
+        let borderColor = CustomColors.placeHolderColor
         field.layer.borderColor = borderColor.cgColor
         
         field.textColor = hexStringToUIColor(hex: "#231F20")
@@ -84,7 +86,7 @@ class LoginView: UIView {
         let button = UIButton()
         button.backgroundColor = .white
         
-        button.layer.borderColor = hexStringToUIColor(hex: "#D0D0CE").cgColor
+        button.layer.borderColor = CustomColors.placeHolderColor.cgColor
         button.layer.cornerRadius = 3
         button.layer.borderWidth = 1
         
@@ -144,8 +146,8 @@ class LoginView: UIView {
         return button
     }()
     
-     lazy var footerLabel: UILabel = {
-        let label = UILabel()
+    lazy var footerButton: UIButton = {
+        let button = UIButton()
         
         let attrstr1 = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .regular), NSAttributedString.Key.foregroundColor: UIColor.black]
         
@@ -157,24 +159,25 @@ class LoginView: UIView {
         
         attributedString1.append(attributedString2)
         
-        label.attributedText = attributedString1
+        button.setAttributedTitle(attributedString1, for: .normal)
         
-        return label
+        button.addTarget(self,
+                         action: #selector(didTapSignUp),
+                         for: .touchUpInside)
+        
+        return button
     }()
     
     required init?(coder: NSCoder) {
         fatalError()
     }
     
+    //MARK: - Parent Delegate
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.setupUI()
-        
-        let tap = UITapGestureRecognizer(target: self,
-                                          action: #selector(didTapSignUp))
-         
-        footerLabel.addGestureRecognizer(tap)
     }
     
     //MARK: - Functions
@@ -225,7 +228,7 @@ class LoginView: UIView {
         addSubview(forgotPasswordButton)
         addSubview(rememberMeButton)
         addSubview(enterButton)
-        addSubview(footerLabel)
+        addSubview(footerButton)
         
         emailLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(28)
@@ -274,11 +277,11 @@ class LoginView: UIView {
             make.height.equalTo(49)
         }
         
-        footerLabel.snp.makeConstraints { make in
-//            make.bottom.equalToSuperview().offset(-48)
+        footerButton.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-48)
             make.left.equalToSuperview().offset(90)
             make.right.equalToSuperview().offset(-90)
-            make.top.equalTo(enterButton.snp.bottom).offset(125)
+//            make.top.equalTo(enterButton.snp.bottom).offset(125)
         }
     }
     
