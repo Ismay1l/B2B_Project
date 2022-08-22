@@ -28,4 +28,8 @@ extension LoginViewController: LoginViewDelegate,
     func didTapBackButton() {
         navigationController?.popViewController(animated: true)
     }
+    
+    func didTapEnter() {
+//        navigationController?.pushViewController(MainTableViewController, animated: true)
+    }
 }

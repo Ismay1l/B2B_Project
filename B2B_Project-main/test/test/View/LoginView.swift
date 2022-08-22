@@ -277,14 +277,9 @@ class LoginView: UIView {
             make.height.equalTo(49)
         }
         
-//        let offset = self.frame.size.width / 2
-        
         footerButton.snp.makeConstraints { make in
             make.bottom.equalToSuperview().offset(-10)
             make.centerX.equalToSuperview()
-//            make.left.equalToSuperview().offset(self.frame.size.width )
-//            make.right.equalToSuperview().offset(-90)
-//            make.top.equalTo(enterButton.snp.bottom).offset(125)
         }
     }
     
@@ -304,7 +299,7 @@ class LoginView: UIView {
     }
     
     @objc private func didTapForgotPassword() {
-        print("Forgot password")
+        delegate?.didTapEnter()
     }
     
     @objc private func didTapEnter() {
