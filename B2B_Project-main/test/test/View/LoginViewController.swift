@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Segmentio
 
 class LoginViewController: UIViewController {
     
@@ -17,6 +18,8 @@ class LoginViewController: UIViewController {
     let signUpView = SignUpView()
     
     let successView = SuccessView()
+    
+    var segmentController = Segmentio()
     
     //MARK: - UIElements
     
@@ -72,48 +75,6 @@ class LoginViewController: UIViewController {
         return label
     }()
     
-    private lazy var loginButton: UIButton = {
-        let button = UIButton()
-        
-        button.setTitle("Login", for: .normal)
-        button.setTitleColor(CustomColors.selectedButtonColor, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-        
-        button.addTarget(self,
-                         action: #selector(didTapButton),
-                         for: .touchUpInside)
-        button.tag = 1
-        
-        return button
-    }()
-    
-    private lazy var signUpButton: UIButton = {
-        let button = UIButton()
-        
-        button.setTitle("Sign up", for: .normal)
-        button.setTitleColor(CustomColors.unselectedButtonColor, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-        
-        button.addTarget(self,
-                         action: #selector(didTapButton),
-                         for: .touchUpInside)
-        button.tag = 2
-        
-        return button
-    }()
-    
-    private lazy var generalUnderline: UIView = {
-        let view = UIView()
-        view.backgroundColor = CustomColors.generalUnderlineColor
-        return view
-    }()
-    
-    private lazy var selectedButtonUnderline: UIView = {
-        let view = UIView()
-        view.backgroundColor = CustomColors.selectedButtonColor
-        return view
-    }()
-    
     private lazy var containerView : UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -130,6 +91,7 @@ class LoginViewController: UIViewController {
         fillContainer(subView: loginView)
         
         configureConstraints()
+        segmentSetup()
         
         loginView.delegate = self
         signUpView.delegate = self
@@ -142,10 +104,8 @@ class LoginViewController: UIViewController {
         view.addSubview(headerLabelExpress)
         view.addSubview(headerLabel)
         view.addSubview(loginToYourAccountLabel)
-        view.addSubview(loginButton)
-        view.addSubview(signUpButton)
         view.addSubview(containerView)
-        view.addSubview(generalUnderline)
+        view.addSubview(segmentController)
         
         let safeLayoutGuide = view.safeAreaLayoutGuide
         
@@ -164,61 +124,94 @@ class LoginViewController: UIViewController {
             make.centerX.equalTo(safeLayoutGuide.snp.centerX)
         }
         
-        loginButton.snp.makeConstraints { make in
-            make.top.equalTo(loginToYourAccountLabel.snp.bottom).offset(32)
-            make.left.equalTo(safeLayoutGuide.snp.left).offset(72)
-        }
-        
-        signUpButton.snp.makeConstraints { make in
-            make.top.equalTo(loginButton.snp.top)
-            make.right.equalTo(safeLayoutGuide.snp.right).offset(-63)
-        }
-        
-        generalUnderline.snp.makeConstraints { make in
-            make.left.equalTo(safeLayoutGuide.snp.left)
-            make.right.equalTo(safeLayoutGuide.snp.right)
-            make.height.equalTo(2)
-            make.top.equalTo(loginButton.snp.bottom).offset(10)
-        }
-        
-        view.addSubview(selectedButtonUnderline)
-        
-        let width = loginButton.frame.size.width + 120
-        selectedButtonUnderline.snp.makeConstraints { make in
-            make.width.equalTo(width)
-            make.centerX.equalTo(loginButton.snp.centerX)
-            make.centerY.equalTo(generalUnderline.snp.centerY)
-            make.height.equalTo(2)
-        }
-        
         containerView.snp.makeConstraints { make in
-            make.top.equalTo(generalUnderline.snp.bottom)
+            make.top.equalTo(segmentController.snp.bottom)
             make.left.equalTo(safeLayoutGuide.snp.left)
             make.right.equalTo(safeLayoutGuide.snp.right)
             make.bottom.equalTo(safeLayoutGuide.snp.bottom)
         }
+        
+        segmentController.snp.makeConstraints { make in
+            make.top.equalTo(loginToYourAccountLabel.snp.bottom).offset(32)
+            make.height.equalTo(40)
+            make.left.equalTo(safeLayoutGuide.snp.left)
+            make.right.equalTo(safeLayoutGuide.snp.right)
+        }
     }
     
-    @objc private func didTapButton(_ sender: UIButton) {
+    func segmentSetup() {
         
-        switch sender.tag {
-        case 1:
+        segmentController.valueDidChange = { segmentio, segmentionIndex in
+            self.segmentDidChanged(segmentIndex: segmentionIndex)
+        }
+        
+        let states = SegmentioStates(
+            defaultState: SegmentioState(
+                backgroundColor: .clear,
+                titleFont: UIFont.systemFont(ofSize: 16, weight: .medium),
+                titleTextColor: CustomColors.unselectedButtonColor
+            ),
+            selectedState: SegmentioState(
+                backgroundColor: .clear,
+                titleFont: UIFont.systemFont(ofSize: 16, weight: .bold),
+                titleTextColor: CustomColors.selectedButtonColor
+            ),
+            highlightedState: SegmentioState(
+                backgroundColor: .clear,
+                titleFont: UIFont.systemFont(ofSize: 16),
+                titleTextColor: UIColor.clear
+            )
+        )
+        
+        var content = [SegmentioItem]()
+        
+        let item1 = SegmentioItem(title: "Login", image: UIImage.init(named: "apple"))
+        let item2 = SegmentioItem(title: "Sign up", image: UIImage.init(named: "apple"))
+        
+        content.append(item1)
+        content.append(item2)
+        
+        let horizontalSeparatorOptions = SegmentioHorizontalSeparatorOptions( type: SegmentioHorizontalSeparatorType.bottom, height: 0, color: .clear)
+        
+        let indicatorOptions = SegmentioIndicatorOptions(type: .bottom,
+                                                         ratio: 1,
+                                                         height: 2,
+                                                         color: hexStringToUIColor(hex: "#FFB500"))
+        
+        let options = SegmentioOptions(backgroundColor: .clear,
+                                       segmentPosition: SegmentioPosition.dynamic,
+                                       scrollEnabled: false,
+                                       indicatorOptions: indicatorOptions,
+                                       horizontalSeparatorOptions: horizontalSeparatorOptions,
+                                       verticalSeparatorOptions: nil,
+                                       imageContentMode: .bottom,
+                                       labelTextAlignment: .center,
+                                       labelTextNumberOfLines: 1,
+                                       segmentStates: states,
+                                       animationDuration: 0)
+        
+        segmentController.setup(content: content, style: SegmentioStyle.onlyLabel, options: options)
+        segmentController.selectedSegmentioIndex = 0
+    }
+    
+    func segmentDidChanged(segmentIndex: Int) {
+        switch segmentIndex {
+        case 0:
             switchToLoginView()
-        case 2:
+        case 1:
             switchToSignUpView()
-            
         default:
-            fillContainer(subView: loginView)
+            break
         }
     }
     
     private func fillContainer ( subView: UIView) {
         
-        self.containerView.subviews.forEach { subview in
+        containerView.subviews.forEach { subview in
             subview.removeFromSuperview()
         }
         
-        self.containerView.addSubview(subView)
+        containerView.addSubview(subView)
         
         subView.snp.makeConstraints { make in
             make.top.left.right.bottom.equalToSuperview()
@@ -228,51 +221,32 @@ class LoginViewController: UIViewController {
     func switchToSignUpView() {
         
         fillContainer(subView: signUpView)
-        signUpButton.setTitleColor(CustomColors.selectedButtonColor, for: .normal)
-        loginButton.setTitleColor(CustomColors.unselectedButtonColor, for: .normal)
         
-        selectedButtonUnderline.removeFromSuperview()
         headerLabel.removeFromSuperview()
         headerLabelExpress.removeFromSuperview()
         loginToYourAccountLabel.removeFromSuperview()
         
-        let safeLayoutGuide = view.safeAreaLayoutGuide
-        
         view.addSubview(signUpHeaderLabel)
+        
+        let safeLayoutGuide = view.safeAreaLayoutGuide
         
         signUpHeaderLabel.snp.makeConstraints { make in
             make.centerX.equalTo(safeLayoutGuide.snp.centerX)
             make.top.equalTo(safeLayoutGuide.snp.top).offset(30)
         }
         
-        loginButton.snp.makeConstraints { make in
+        segmentController.snp.makeConstraints { make in
             make.top.equalTo(signUpHeaderLabel.snp.bottom).offset(29)
-            make.left.equalTo(safeLayoutGuide.snp.left).offset(72)
-        }
-        
-        signUpButton.snp.makeConstraints { make in
-            make.top.equalTo(loginButton.snp.top)
-            make.right.equalTo(safeLayoutGuide.snp.right).offset(-63)
-        }
-        
-        view.addSubview(selectedButtonUnderline)
-        
-        let width = signUpButton.frame.size.width + 120
-        selectedButtonUnderline.snp.makeConstraints { make in
-            make.width.equalTo(width)
-            make.centerX.equalTo(signUpButton.snp.centerX)
-            make.centerY.equalTo(generalUnderline.snp.centerY)
-            make.height.equalTo(2)
+            make.height.equalTo(40)
+            make.left.equalTo(safeLayoutGuide.snp.left)
+            make.right.equalTo(safeLayoutGuide.snp.right)
         }
     }
-    
+
     func switchToLoginView() {
         
         fillContainer(subView: loginView)
-        loginButton.setTitleColor(CustomColors.selectedButtonColor, for: .normal)
-        signUpButton.setTitleColor(CustomColors.unselectedButtonColor, for: .normal)
         
-        selectedButtonUnderline.removeFromSuperview()
         signUpHeaderLabel.removeFromSuperview()
         
         view.addSubview(headerLabel)
@@ -296,62 +270,49 @@ class LoginViewController: UIViewController {
             make.centerX.equalTo(safeLayoutGuide.snp.centerX)
         }
         
-        loginButton.snp.makeConstraints { make in
+        segmentController.snp.makeConstraints { make in
             make.top.equalTo(loginToYourAccountLabel.snp.bottom).offset(32)
-            make.left.equalTo(safeLayoutGuide.snp.left).offset(72)
-        }
-        
-        signUpButton.snp.makeConstraints { make in
-            make.top.equalTo(loginButton.snp.top)
-            make.right.equalTo(safeLayoutGuide.snp.right).offset(-63)
-        }
-        
-        view.addSubview(selectedButtonUnderline)
-        
-        let width = loginButton.frame.size.width + 120
-        selectedButtonUnderline.snp.makeConstraints { make in
-            make.width.equalTo(width)
-            make.centerX.equalTo(loginButton.snp.centerX)
-            make.centerY.equalTo(generalUnderline.snp.centerY)
-            make.height.equalTo(2)
+            make.height.equalTo(40)
+            make.left.equalTo(safeLayoutGuide.snp.left)
+            make.right.equalTo(safeLayoutGuide.snp.right)
         }
     }
-    
-    func switchToSuccessView() {
-        
-        signUpView.removeFromSuperview()
-        signUpHeaderLabel.removeFromSuperview()
-        signUpButton.removeFromSuperview()
-        loginButton.removeFromSuperview()
-        generalUnderline.removeFromSuperview()
-        selectedButtonUnderline.removeFromSuperview()
-        
-        view.addSubview(successView)
-        
-        successView.layer.cornerRadius = 10
-        successView.layer.shadowOffset = CGSize(width: -1, height: 1)
-        successView.layer.shadowRadius = 20
-        successView.layer.shadowOpacity = 0.5
-        successView.layer.shadowColor = UIColor.black.cgColor
-        
-        let width = view.frame.size.width - 80
-        
-        successView.snp.makeConstraints { make in
-            make.left.equalTo(view.safeAreaLayoutGuide.snp.left).offset(42)
-            make.right.equalTo(view.safeAreaLayoutGuide.snp.right).offset(-42)
-            make.height.equalTo(340)
-            make.width.equalTo(width)
-            make.center.equalTo(view.safeAreaLayoutGuide.snp.center)
-        }
-    }
-    
-    func switchToMainPage() {
-        successView.removeFromSuperview()
-        configureConstraints()
-        fillContainer(subView: loginView)
-        
-        loginButton.setTitleColor(CustomColors.selectedButtonColor, for: .normal)
-        signUpButton.setTitleColor(CustomColors.unselectedButtonColor, for: .normal)
-    }
+
+//    func switchToSuccessView() {
+//
+//        signUpView.removeFromSuperview()
+//        signUpHeaderLabel.removeFromSuperview()
+//        signUpButton.removeFromSuperview()
+//        loginButton.removeFromSuperview()
+//        generalUnderline.removeFromSuperview()
+//        selectedButtonUnderline.removeFromSuperview()
+//
+//        view.addSubview(successView)
+//
+//        successView.layer.cornerRadius = 10
+//        successView.layer.shadowOffset = CGSize(width: -1, height: 1)
+//        successView.layer.shadowRadius = 20
+//        successView.layer.shadowOpacity = 0.5
+//        successView.layer.shadowColor = UIColor.black.cgColor
+//
+//        let width = view.frame.size.width - 80
+//
+//        successView.snp.makeConstraints { make in
+//            make.left.equalTo(view.safeAreaLayoutGuide.snp.left).offset(42)
+//            make.right.equalTo(view.safeAreaLayoutGuide.snp.right).offset(-42)
+//            make.height.equalTo(340)
+//            make.width.equalTo(width)
+//            make.center.equalTo(view.safeAreaLayoutGuide.snp.center)
+//        }
+//    }
+//
+//    func switchToMainPage() {
+//        successView.removeFromSuperview()
+//        configureConstraints()
+//        fillContainer(subView: loginView)
+//
+//        loginButton.setTitleColor(CustomColors.selectedButtonColor, for: .normal)
+//        signUpButton.setTitleColor(CustomColors.unselectedButtonColor, for: .normal)
+//    }
     
 }
