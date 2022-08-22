@@ -12,20 +12,20 @@ extension LoginViewController: LoginViewDelegate,
                                SuccessViewDelegate{
     
     func didTapLogin() {
-        segmentController.selectedSegmentioIndex = 0
         segmentDidChanged(segmentIndex: segmentController.selectedSegmentioIndex)
+        segmentController.selectedSegmentioIndex = 0
     }
     
     func didTapSignUp() {
-        segmentController.selectedSegmentioIndex = 1
         segmentDidChanged(segmentIndex: segmentController.selectedSegmentioIndex)
+        segmentController.selectedSegmentioIndex = 1
     }
     
     func didTapNext() {
-//        switchToSuccessView()
+        navigationController?.pushViewController(successView, animated: true)
     }
     
     func didTapBackButton() {
-//        switchToMainPage()
+        navigationController?.popViewController(animated: true)
     }
 }

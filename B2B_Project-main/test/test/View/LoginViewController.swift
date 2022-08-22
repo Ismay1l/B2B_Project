@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     
     let signUpView = SignUpView()
     
-    let successView = SuccessView()
+    let successView = SuccessVC()
     
     var segmentController = Segmentio()
     
@@ -49,17 +49,6 @@ class LoginViewController: UIViewController {
         label.font = .systemFont(ofSize: 32, weight: .bold)
         
         label.textColor = .systemOrange
-        
-        return label
-    }()
-    
-    private lazy var signUpHeaderLabel: UILabel = {
-        let label = UILabel()
-        
-        label.text = "Sign Up"
-        label.font = .systemFont(ofSize: 32, weight: .bold)
-        
-        label.textColor = CustomColors.unselectedButtonColor
         
         return label
     }()
@@ -98,6 +87,23 @@ class LoginViewController: UIViewController {
         successView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        segmentDidChanged(segmentIndex: segmentController.selectedSegmentioIndex)
+        segmentController.selectedSegmentioIndex = 0
+        
+        loginView.emailTextField.text = nil
+        loginView.passwordTextField.text = nil
+        
+        signUpView.nameLastnameTextField.text = nil
+        signUpView.emailTextField.text = nil
+        signUpView.companyNameTextField.text = nil
+        signUpView.dropDown.selectedIndex = nil
+        signUpView.telephoneTextField.text = nil
+        signUpView.addressTextField.text = nil
+        signUpView.websiteTextField.text = nil
+    }
+    
     //MARK: - Functions
     
     private func configureConstraints() {
@@ -111,7 +117,7 @@ class LoginViewController: UIViewController {
         
         headerLabel.snp.makeConstraints { make in
             make.centerX.equalTo(safeLayoutGuide.snp.centerX)
-            make.top.equalTo(safeLayoutGuide.snp.top).offset(40)
+            make.top.equalTo(safeLayoutGuide.snp.top).offset(0)
         }
         
         headerLabelExpress.snp.makeConstraints { make in
@@ -220,23 +226,18 @@ class LoginViewController: UIViewController {
     
     func switchToSignUpView() {
         
+        self.title = "Sign Up"
+        
         fillContainer(subView: signUpView)
         
         headerLabel.removeFromSuperview()
         headerLabelExpress.removeFromSuperview()
         loginToYourAccountLabel.removeFromSuperview()
         
-        view.addSubview(signUpHeaderLabel)
-        
         let safeLayoutGuide = view.safeAreaLayoutGuide
         
-        signUpHeaderLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(safeLayoutGuide.snp.centerX)
-            make.top.equalTo(safeLayoutGuide.snp.top).offset(30)
-        }
-        
         segmentController.snp.makeConstraints { make in
-            make.top.equalTo(signUpHeaderLabel.snp.bottom).offset(29)
+            make.top.equalTo(safeLayoutGuide.snp.top).offset(10)
             make.height.equalTo(40)
             make.left.equalTo(safeLayoutGuide.snp.left)
             make.right.equalTo(safeLayoutGuide.snp.right)
@@ -247,17 +248,20 @@ class LoginViewController: UIViewController {
         
         fillContainer(subView: loginView)
         
-        signUpHeaderLabel.removeFromSuperview()
+        self.title = nil
+        
+        segmentController.removeFromSuperview()
         
         view.addSubview(headerLabel)
         view.addSubview(headerLabelExpress)
         view.addSubview(loginToYourAccountLabel)
+        view.addSubview(segmentController)
         
         let safeLayoutGuide = view.safeAreaLayoutGuide
         
         headerLabel.snp.makeConstraints { make in
             make.centerX.equalTo(safeLayoutGuide.snp.centerX)
-            make.top.equalTo(safeLayoutGuide.snp.top).offset(40)
+            make.top.equalTo(safeLayoutGuide.snp.top).offset(0)
         }
         
         headerLabelExpress.snp.makeConstraints { make in
@@ -275,6 +279,13 @@ class LoginViewController: UIViewController {
             make.height.equalTo(40)
             make.left.equalTo(safeLayoutGuide.snp.left)
             make.right.equalTo(safeLayoutGuide.snp.right)
+        }
+        
+        containerView.snp.makeConstraints { make in
+            make.top.equalTo(segmentController.snp.bottom)
+            make.left.equalTo(safeLayoutGuide.snp.left)
+            make.right.equalTo(safeLayoutGuide.snp.right)
+            make.bottom.equalTo(safeLayoutGuide.snp.bottom)
         }
     }
 

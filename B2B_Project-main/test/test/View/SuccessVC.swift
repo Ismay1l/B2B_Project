@@ -7,11 +7,16 @@
 
 import UIKit
 
-class SuccessView: UIView {
+class SuccessVC: UIViewController {
     
     var delegate: SuccessViewDelegate?
     
     //MARK: - UI Elements
+    
+    private lazy var containerView: UIView = {
+        let view = UIView()
+        return view
+    }()
     
     private lazy var successIcon: UIImageView = {
         let icon = UIImageView(image: UIImage(named: "ic_success"))
@@ -44,32 +49,45 @@ class SuccessView: UIView {
 
     //MARK: - Parent Delegate
     
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
+//    required init?(coder: NSCoder) {
+//        fatalError()
+//    }
     
     //MARK: - Parent Delegate
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        self.setupUI()
+        configureConstraints()
+        
+        self.navigationItem.hidesBackButton = true
     }
     
     //MARK: - Functions
-        
-    private func setupUI () {
-        configureConstraints()
-    }
     
     private func configureConstraints() {
         
-        backgroundColor = .white
+        view.backgroundColor = .white
         
-        addSubview(successIcon)
-        addSubview(successLabel)
-        addSubview(descriptionLabel)
-        addSubview(backButton)
+        view.addSubview(containerView)
+        containerView.addSubview(successIcon)
+        containerView.addSubview(successLabel)
+        containerView.addSubview(descriptionLabel)
+        containerView.addSubview(backButton)
+        
+        
+        containerView.layer.cornerRadius = 10
+        containerView.layer.shadowOffset = CGSize(width: -1, height: 1)
+        containerView.layer.shadowRadius = 10
+        containerView.layer.shadowOpacity = 0.5
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.backgroundColor = .white
+        
+        containerView.snp.makeConstraints { make in
+            make.width.equalTo(290)
+            make.height.equalTo(340)
+            make.center.equalToSuperview()
+        }
         
         successIcon.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(69.5)

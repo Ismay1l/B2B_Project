@@ -20,9 +20,10 @@
 		49CB609E28ABA5B500EA8303 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB609D28ABA5B500EA8303 /* SignUpView.swift */; };
 		4B229C8A28B1591A00CFFB0C /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 4B229C8928B1591A00CFFB0C /* iOSDropDown */; };
 		4B229C9428B15FCD00CFFB0C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B229C9328B15FCD00CFFB0C /* Protocols.swift */; };
+		4B40614528B3939C000DB2A0 /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B40614428B3939C000DB2A0 /* LoginNavigationController.swift */; };
 		4B8AC8D228B2937000B581EC /* SignUpView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8D128B2937000B581EC /* SignUpView+Extension.swift */; };
 		4B8AC8D628B29B4E00B581EC /* LoginViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8D528B29B4E00B581EC /* LoginViewController+Extension.swift */; };
-		4B8AC8D828B29C2F00B581EC /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8D728B29C2F00B581EC /* SuccessView.swift */; };
+		4B8AC8D828B29C2F00B581EC /* SuccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8D728B29C2F00B581EC /* SuccessVC.swift */; };
 		4B8AC8DD28B2AB5500B581EC /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8DC28B2AB5500B581EC /* MainTableViewController.swift */; };
 		4B8AC8E428B2ABD500B581EC /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8E328B2ABD400B581EC /* HomeNavigationController.swift */; };
 		4B8AC8E628B2ABF500B581EC /* SearchNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8E528B2ABF500B581EC /* SearchNavigationController.swift */; };
@@ -57,9 +58,10 @@
 		49CB609B28ABA59300EA8303 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		49CB609D28ABA5B500EA8303 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		4B229C9328B15FCD00CFFB0C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		4B40614428B3939C000DB2A0 /* LoginNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
 		4B8AC8D128B2937000B581EC /* SignUpView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpView+Extension.swift"; sourceTree = "<group>"; };
 		4B8AC8D528B29B4E00B581EC /* LoginViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Extension.swift"; sourceTree = "<group>"; };
-		4B8AC8D728B29C2F00B581EC /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		4B8AC8D728B29C2F00B581EC /* SuccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessVC.swift; sourceTree = "<group>"; };
 		4B8AC8DC28B2AB5500B581EC /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		4B8AC8E328B2ABD400B581EC /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		4B8AC8E528B2ABF500B581EC /* SearchNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNavigationController.swift; sourceTree = "<group>"; };
@@ -104,7 +106,6 @@
 				0088820C84C10DAC885A1989 /* Pods-test.debug.xcconfig */,
 				050FDF22E81FB4D579CB3A4C /* Pods-test.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -155,10 +156,10 @@
 		49CB609228AB953A00EA8303 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4B8AC8D528B29B4E00B581EC /* LoginViewController+Extension.swift */,
 				4BE106AB28AD72F300D28B1A /* TextField+Extension.swift */,
 				4947A55928AE1F1C00DCF91C /* LoginView+Extension.swift */,
 				4B8AC8D128B2937000B581EC /* SignUpView+Extension.swift */,
-				4B8AC8D528B29B4E00B581EC /* LoginViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -177,7 +178,8 @@
 				49CB609528AB95A100EA8303 /* LoginViewController.swift */,
 				49CB609B28ABA59300EA8303 /* LoginView.swift */,
 				49CB609D28ABA5B500EA8303 /* SignUpView.swift */,
-				4B8AC8D728B29C2F00B581EC /* SuccessView.swift */,
+				4B8AC8D728B29C2F00B581EC /* SuccessVC.swift */,
+				4B40614428B3939C000DB2A0 /* LoginNavigationController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -413,8 +415,8 @@
 			);
 			mainGroup = 49CB604828AB8F4700EA8303;
 			packageReferences = (
-				4BE106A328AD712F00D28B1A /* XCRemoteSwiftPackageReference "SnapKit.git" */,
-				4B229C8828B1591A00CFFB0C /* XCRemoteSwiftPackageReference "iOSDropDown.git" */,
+				4BE106A328AD712F00D28B1A /* XCRemoteSwiftPackageReference "SnapKit" */,
+				4B229C8828B1591A00CFFB0C /* XCRemoteSwiftPackageReference "iOSDropDown" */,
 			);
 			productRefGroup = 49CB605228AB8F4700EA8303 /* Products */;
 			projectDirPath = "";
@@ -486,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4947A55A28AE1F1C00DCF91C /* LoginView+Extension.swift in Sources */,
+				4B40614528B3939C000DB2A0 /* LoginNavigationController.swift in Sources */,
 				4B8AC8FB28B2AD6E00B581EC /* AccountVC.swift in Sources */,
 				4B8AC8E828B2AC2000B581EC /* AddTenderNavigationController.swift in Sources */,
 				49CB605528AB8F4700EA8303 /* AppDelegate.swift in Sources */,
@@ -500,7 +503,7 @@
 				4947A55C28AE4F9800DCF91C /* GeneralFunctions.swift in Sources */,
 				4B8AC8F228B2AD0B00B581EC /* SearchVC.swift in Sources */,
 				4B8AC8F528B2AD3100B581EC /* AddTenderVC.swift in Sources */,
-				4B8AC8D828B29C2F00B581EC /* SuccessView.swift in Sources */,
+				4B8AC8D828B29C2F00B581EC /* SuccessVC.swift in Sources */,
 				49CB609C28ABA59300EA8303 /* LoginView.swift in Sources */,
 				4B8AC8D628B29B4E00B581EC /* LoginViewController+Extension.swift in Sources */,
 				4B8AC8F828B2AD5A00B581EC /* StatisticsVC.swift in Sources */,
@@ -731,7 +734,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4B229C8828B1591A00CFFB0C /* XCRemoteSwiftPackageReference "iOSDropDown.git" */ = {
+		4B229C8828B1591A00CFFB0C /* XCRemoteSwiftPackageReference "iOSDropDown" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jriosdev/iOSDropDown.git";
 			requirement = {
@@ -739,7 +742,7 @@
 				kind = branch;
 			};
 		};
-		4BE106A328AD712F00D28B1A /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+		4BE106A328AD712F00D28B1A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -752,12 +755,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		4B229C8928B1591A00CFFB0C /* iOSDropDown */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4B229C8828B1591A00CFFB0C /* XCRemoteSwiftPackageReference "iOSDropDown.git" */;
+			package = 4B229C8828B1591A00CFFB0C /* XCRemoteSwiftPackageReference "iOSDropDown" */;
 			productName = iOSDropDown;
 		};
 		4BE106A428AD712F00D28B1A /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4BE106A328AD712F00D28B1A /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = 4BE106A328AD712F00D28B1A /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

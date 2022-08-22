@@ -372,8 +372,8 @@ class SignUpView: UIView {
         
         footerButton.snp.makeConstraints { make in
             make.top.equalTo(nextButton.snp.bottom).offset(15)
-            make.centerX.equalTo(self.snp.centerX)
-            make.bottom.equalTo(bottom).offset(-25)
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(bottom).offset(-10)
             
         }
         

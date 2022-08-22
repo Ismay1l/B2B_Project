@@ -56,7 +56,7 @@ class PasswordTextField: UITextField {
        }
 
        func commonInit() {
-           rightButton.setImage(UIImage(named: "ic_showPassword") , for: .normal)
+           rightButton.setImage(UIImage(named: "ic_hidePassword") , for: .normal)
            rightButton.addTarget(self, action: #selector(toggleShowHide), for: .touchUpInside)
            rightButton.frame = CGRect(x:0, y:0, width:30, height:30)
 
@@ -73,9 +73,9 @@ class PasswordTextField: UITextField {
        func toggle() {
            isSecureTextEntry = !isSecureTextEntry
            if isSecureTextEntry {
-               rightButton.setImage(UIImage(named: "ic_showPassword") , for: .normal)
-           } else {
                rightButton.setImage(UIImage(named: "ic_hidePassword") , for: .normal)
+           } else {
+               rightButton.setImage(UIImage(named: "ic_showPassword") , for: .normal)
            }
        }
     
