@@ -94,6 +94,9 @@ class LoginViewController: UIViewController {
         
         loginView.emailTextField.text = nil
         loginView.passwordTextField.text = nil
+        loginView.emailTextField.layer.borderColor = CustomColors.placeHolderColor.cgColor
+        loginView.emailTextField.rightView = nil
+        loginView.passwordTextField.layer.borderColor = CustomColors.placeHolderColor.cgColor
         
         signUpView.nameLastnameTextField.text = nil
         signUpView.emailTextField.text = nil

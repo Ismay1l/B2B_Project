@@ -19,7 +19,6 @@
 		49CB609628AB95A100EA8303 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB609528AB95A100EA8303 /* LoginViewController.swift */; };
 		49CB609C28ABA59300EA8303 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB609B28ABA59300EA8303 /* LoginView.swift */; };
 		49CB609E28ABA5B500EA8303 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB609D28ABA5B500EA8303 /* SignUpView.swift */; };
-		4B229C8A28B1591A00CFFB0C /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 4B229C8928B1591A00CFFB0C /* iOSDropDown */; };
 		4B229C9428B15FCD00CFFB0C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B229C9328B15FCD00CFFB0C /* Protocols.swift */; };
 		4B40614528B3939C000DB2A0 /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B40614428B3939C000DB2A0 /* LoginNavigationController.swift */; };
 		4B8AC8D228B2937000B581EC /* SignUpView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC8D128B2937000B581EC /* SignUpView+Extension.swift */; };
@@ -86,7 +85,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BE106A528AD712F00D28B1A /* SnapKit in Frameworks */,
-				4B229C8A28B1591A00CFFB0C /* iOSDropDown in Frameworks */,
 				53007937BDA84C77B9E7B68F /* Pods_test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,7 +385,6 @@
 			name = test;
 			packageProductDependencies = (
 				4BE106A428AD712F00D28B1A /* SnapKit */,
-				4B229C8928B1591A00CFFB0C /* iOSDropDown */,
 			);
 			productName = test;
 			productReference = 49CB605128AB8F4700EA8303 /* test.app */;
@@ -419,7 +416,6 @@
 			mainGroup = 49CB604828AB8F4700EA8303;
 			packageReferences = (
 				4BE106A328AD712F00D28B1A /* XCRemoteSwiftPackageReference "SnapKit" */,
-				4B229C8828B1591A00CFFB0C /* XCRemoteSwiftPackageReference "iOSDropDown" */,
 			);
 			productRefGroup = 49CB605228AB8F4700EA8303 /* Products */;
 			projectDirPath = "";
@@ -738,14 +734,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4B229C8828B1591A00CFFB0C /* XCRemoteSwiftPackageReference "iOSDropDown" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jriosdev/iOSDropDown.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		4BE106A328AD712F00D28B1A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -757,11 +745,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4B229C8928B1591A00CFFB0C /* iOSDropDown */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4B229C8828B1591A00CFFB0C /* XCRemoteSwiftPackageReference "iOSDropDown" */;
-			productName = iOSDropDown;
-		};
 		4BE106A428AD712F00D28B1A /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4BE106A328AD712F00D28B1A /* XCRemoteSwiftPackageReference "SnapKit" */;

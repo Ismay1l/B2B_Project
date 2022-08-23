@@ -95,6 +95,26 @@ class CustomTabBarController: RAMAnimatedTabBarController {
         (statisticsNC.tabBarItem as? RAMAnimatedTabBarItem)?.animation = RAMBounceAnimation()
         (accountNC.tabBarItem as? RAMAnimatedTabBarItem)?.animation = RAMBounceAnimation()
         
+        (homeNC.tabBarItem as? RAMAnimatedTabBarItem)?.bgSelectedColor = .systemOrange
+        (searchNC.tabBarItem as? RAMAnimatedTabBarItem)?.bgSelectedColor = .systemOrange
+        (addTenderNC.tabBarItem as? RAMAnimatedTabBarItem)?.bgSelectedColor = .systemOrange
+        (statisticsNC.tabBarItem as? RAMAnimatedTabBarItem)?.iconColor = .systemOrange
+        
+        
         setViewControllers([homeNC, searchNC, addTenderNC, statisticsNC, accountNC], animated: true)
     }
 }
+
+extension RAMAnimatedTabBarItem {
+    
+    convenience init(title: String, image: UIImage?, tag: Int, animation: RAMItemAnimation, selectedColor: UIColor, unselectedColor: UIColor) {
+        self.init(title: title, image: image, tag: 0)
+        animation.iconSelectedColor = selectedColor
+        animation.textSelectedColor = selectedColor
+        self.animation = animation
+        self.textColor = unselectedColor
+        self.iconColor = unselectedColor
+    }
+}
+
+
