@@ -46,12 +46,6 @@ class SuccessVC: UIViewController {
                          for: .touchUpInside)
         return button
     }()
-
-    //MARK: - Parent Delegate
-    
-//    required init?(coder: NSCoder) {
-//        fatalError()
-//    }
     
     //MARK: - Parent Delegate
     

@@ -21,20 +21,19 @@ class LoginView: UIView {
     
     //MARK: - UI Elements
     
-    lazy var wrongEmailAlertLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Caption text, description, error notification"
-        label.textColor = hexStringToUIColor(hex: "#FF3D71")
-        label.font = .systemFont(ofSize: 12, weight: .regular)
-        return label
-    }()
+    lazy var emailStackView = getStackView()
     
-    lazy var correctTickIcon: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "ic_correct") , for: .normal)
-        button.frame = CGRect(x:0, y:0, width:30, height:30)
-        return button
-    }()
+    private lazy var passwordStackView = getStackView()
+    
+    lazy var wrongPasswordAlertLabel = getLabel(text: "Caption text, description, error notification",
+                                                        size: 12, weigth: .regular,
+                                                        color: "FF3D71")
+    
+    lazy var wrongEmailAlertLabel = getLabel(text: "Caption text, description, error notification",
+                                             size: 12, weigth: .regular,
+                                             color: "FF3D71")
+    
+    
     
     private lazy var emailLabel = getLabel(text: "Email",
                                            size: 14,
@@ -46,23 +45,7 @@ class LoginView: UIView {
                                               weigth: .regular,
                                               color: "#231F20")
     
-    lazy var emailTextField: EmailTextField = {
-        let field = EmailTextField()
-        let textColor = CustomColors.placeHolderColor
-        field.attributedPlaceholder = NSAttributedString(
-            string: "Enter your email",
-            attributes: [NSAttributedString.Key.foregroundColor: textColor, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14, weight: .regular)])
-        field.layer.cornerRadius = 10
-        field.clipsToBounds = true
-        field.layer.borderWidth = 1
-        let borderColor = CustomColors.placeHolderColor
-        field.layer.borderColor = borderColor.cgColor
-        
-        field.textColor = hexStringToUIColor(hex: "#231F20")
-        field.font = .systemFont(ofSize: 14, weight: .semibold)
-        
-        return field
-    }()
+    lazy var emailTextField = getEmailTextField()
     
     lazy var passwordTextField: PasswordTextField = {
         let field = PasswordTextField()
@@ -149,17 +132,9 @@ class LoginView: UIView {
     lazy var footerButton: UIButton = {
         let button = UIButton()
         
-        let attrstr1 = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .regular), NSAttributedString.Key.foregroundColor: UIColor.black]
+       let title = getAttributedFooterLabelForRegistrationPage(basicText: "Don't have an account? ", coloredString: "Sign up")
         
-        let attrstr2 = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .medium), NSAttributedString.Key.foregroundColor: hexStringToUIColor(hex: "#FFB500")]
-        
-        let attributedString1 = NSMutableAttributedString(string:"Don’t have an account?", attributes: attrstr1)
-        
-        let attributedString2 = NSMutableAttributedString(string:" Sign up", attributes: attrstr2)
-        
-        attributedString1.append(attributedString2)
-        
-        button.setAttributedTitle(attributedString1, for: .normal)
+        button.setAttributedTitle(title, for: .normal)
         
         button.addTarget(self,
                          action: #selector(didTapSignUp),
@@ -220,8 +195,8 @@ class LoginView: UIView {
     
     private func configureConstraints() {
         
-        addSubview(emailLabel)
-        addSubview(emailTextField)
+//        addSubview(emailLabel)
+//        addSubview(emailTextField)
         addSubview(passwordLabel)
         addSubview(passwordTextField)
         addSubview(rememberMeBox)
@@ -229,34 +204,63 @@ class LoginView: UIView {
         addSubview(rememberMeButton)
         addSubview(enterButton)
         addSubview(footerButton)
+        addSubview(emailStackView)
+        addSubview(passwordStackView)
         
-        emailLabel.snp.makeConstraints { make in
+        emailStackView.addArrangedSubview(emailLabel)
+        emailStackView.addArrangedSubview(emailTextField)
+        emailStackView.addArrangedSubview(wrongEmailAlertLabel)
+        wrongEmailAlertLabel.isHidden = true
+        
+        passwordStackView.addArrangedSubview(passwordLabel)
+        passwordStackView.addArrangedSubview(passwordTextField)
+        passwordStackView.addArrangedSubview(wrongPasswordAlertLabel)
+        wrongPasswordAlertLabel.isHidden = true
+        
+        emailStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(28)
             make.left.equalToSuperview().offset(25)
+            make.right.equalToSuperview().offset(-25)
         }
         
-        emailTextField.snp.makeConstraints { make in
+        passwordStackView.snp.makeConstraints { make in
+            make.top.equalTo(emailStackView.snp.bottom).offset(23)
             make.left.equalToSuperview().offset(25)
             make.right.equalToSuperview().offset(-25)
-            make.top.equalTo(emailLabel.snp.bottom).offset(12)
+        }
+        
+        emailLabel.snp.makeConstraints { make in
+//            make.top.equalToSuperview().offset(28)
+//            make.left.equalToSuperview().offset(25)
+//            make.width.equalTo(40)
+        }
+
+        emailTextField.snp.makeConstraints { make in
+//            make.left.equalToSuperview().offset(25)
+//            make.right.equalToSuperview().offset(-25)
+//            make.top.equalTo(emailLabel.snp.bottom).offset(12)
             make.height.equalTo(50)
+            make.width.equalTo(emailStackView.snp.width)
         }
         
         passwordLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(25)
-            make.top.equalTo(emailTextField.snp.bottom).offset(23)
+//            make.left.equalToSuperview().offset(25)
+//            make.top.equalTo(emailStackView.snp.bottom).offset(23)
+//            make.width.equalTo(40)
         }
         
         passwordTextField.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(25)
-            make.right.equalToSuperview().offset(-25)
-            make.top.equalTo(passwordLabel.snp.bottom).offset(12)
+//            make.left.equalToSuperview().offset(25)
+//            make.right.equalToSuperview().offset(-25)
+//            make.top.equalTo(passwordLabel.snp.bottom).offset(12)
+//            make.height.equalTo(50)
             make.height.equalTo(50)
+            make.width.equalTo(emailStackView.snp.width)
         }
         
         rememberMeBox.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(25)
-            make.top.equalTo(passwordTextField.snp.bottom).offset(14)
+            make.top.equalTo(passwordStackView.snp.bottom).offset(14)
             make.height.width.equalTo(20)
         }
         
@@ -303,7 +307,7 @@ class LoginView: UIView {
     }
     
     @objc private func didTapEnter() {
-        print("Enter tapped")
+        delegate?.didTapEnter()
     }
 }
 

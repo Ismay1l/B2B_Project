@@ -15,10 +15,11 @@ class AccountNavigationController: UINavigationController, UIGestureRecognizerDe
         let accountVC = AccountVC()
         self.viewControllers = [accountVC]
         
-        interactivePopGestureRecognizer?.isEnabled = true
+        self.navigationItem.leftBarButtonItem = nil
+        interactivePopGestureRecognizer?.isEnabled = false
         interactivePopGestureRecognizer?.delegate = self
         
         navigationBar.prefersLargeTitles = true
-        accountVC.navigationItem.title = "World Clock"
+        accountVC.navigationItem.title = "Account"
     }
 }

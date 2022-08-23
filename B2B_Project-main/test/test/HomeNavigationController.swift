@@ -20,5 +20,8 @@ class HomeNavigationController: UINavigationController, UIGestureRecognizerDeleg
         
         navigationBar.prefersLargeTitles = true
         homeVC.navigationItem.title = "Home"
+        
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
 }

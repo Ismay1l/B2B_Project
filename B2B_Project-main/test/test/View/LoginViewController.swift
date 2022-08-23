@@ -98,10 +98,12 @@ class LoginViewController: UIViewController {
         signUpView.nameLastnameTextField.text = nil
         signUpView.emailTextField.text = nil
         signUpView.companyNameTextField.text = nil
-        signUpView.dropDown.selectedIndex = nil
         signUpView.telephoneTextField.text = nil
         signUpView.addressTextField.text = nil
         signUpView.websiteTextField.text = nil
+        
+        loginView.enterButton.isEnabled = false
+        loginView.enterButton.layer.opacity = 0.5
     }
     
     //MARK: - Functions
@@ -288,42 +290,4 @@ class LoginViewController: UIViewController {
             make.bottom.equalTo(safeLayoutGuide.snp.bottom)
         }
     }
-
-//    func switchToSuccessView() {
-//
-//        signUpView.removeFromSuperview()
-//        signUpHeaderLabel.removeFromSuperview()
-//        signUpButton.removeFromSuperview()
-//        loginButton.removeFromSuperview()
-//        generalUnderline.removeFromSuperview()
-//        selectedButtonUnderline.removeFromSuperview()
-//
-//        view.addSubview(successView)
-//
-//        successView.layer.cornerRadius = 10
-//        successView.layer.shadowOffset = CGSize(width: -1, height: 1)
-//        successView.layer.shadowRadius = 20
-//        successView.layer.shadowOpacity = 0.5
-//        successView.layer.shadowColor = UIColor.black.cgColor
-//
-//        let width = view.frame.size.width - 80
-//
-//        successView.snp.makeConstraints { make in
-//            make.left.equalTo(view.safeAreaLayoutGuide.snp.left).offset(42)
-//            make.right.equalTo(view.safeAreaLayoutGuide.snp.right).offset(-42)
-//            make.height.equalTo(340)
-//            make.width.equalTo(width)
-//            make.center.equalTo(view.safeAreaLayoutGuide.snp.center)
-//        }
-//    }
-//
-//    func switchToMainPage() {
-//        successView.removeFromSuperview()
-//        configureConstraints()
-//        fillContainer(subView: loginView)
-//
-//        loginButton.setTitleColor(CustomColors.selectedButtonColor, for: .normal)
-//        signUpButton.setTitleColor(CustomColors.unselectedButtonColor, for: .normal)
-//    }
-    
 }

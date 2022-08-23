@@ -30,6 +30,8 @@ extension LoginViewController: LoginViewDelegate,
     }
     
     func didTapEnter() {
-//        navigationController?.pushViewController(MainTableViewController, animated: true)
+        let vc = CustomTabBarController()
+        vc.tabBar.backgroundColor = .white
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
