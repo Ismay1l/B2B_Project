@@ -47,6 +47,8 @@ class MainTabViewController: UITabBarController {
 
 class CustomTabBarController: RAMAnimatedTabBarController {
     
+    //SSCustomTabBarViewController - use this
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
